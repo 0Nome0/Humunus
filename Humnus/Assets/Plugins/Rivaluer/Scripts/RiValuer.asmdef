@@ -1,0 +1,15 @@
+{
+    "name": "RiValuer",
+    "references": [
+        "GUID:3b0bad2210ab58c4e9f7b19f5434c4a4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

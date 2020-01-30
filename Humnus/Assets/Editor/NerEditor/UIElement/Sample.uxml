@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Label text="MusicName" style="height: 90px; align-items: auto; justify-content: flex-start; -unity-text-align: middle-center; font-size: 36px;">
+        <Style src="Sample.uss" />
+    </ui:Label>
+    <ui:Label text="AutorName" style="height: 0; align-items: inherit; justify-content: flex-start; -unity-text-align: middle-center; font-size: 26px;">
+        <Style src="Sample.uss" />
+    </ui:Label>
+</ui:UXML>

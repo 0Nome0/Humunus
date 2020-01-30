@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619f036200f35ab46b2eeb506a600208, type: 3}
+  m_Name: MusicC 1
+  m_EditorClassIdentifier: 
+  id: 3
+  icon: {fileID: 21300000, guid: fddf0079977f8d847aaadc73d5b99b77, type: 3}
+  audioName: 
+  musicName: "C\u304C\u6765\u308B\u307E\u3067\u306B"
+  authors: "\u4F5C\u66F2\u4F5C\u66F2:Humnus"
+  info: 
+  openConditions: 
+  openFlag: 010101
+  clearDatas:
+  - clearRank: 0
+    maxScore: 1
+    maxCombo: 19
+    clearCount: 228
+  - clearRank: 0
+    maxScore: 20
+    maxCombo: 35
+    clearCount: 24
+  - clearRank: 0
+    maxScore: 30
+    maxCombo: 76
+    clearCount: 113

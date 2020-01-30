@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Label text="Hello World! From UXML" style="width: 180px; height: 50px; font-size: 25px;">
+        <Style src="TransformMemory.uss" />
+    </ui:Label>
+    <uie:ObjectField label="Object Field" type="GameObject">
+        <Style src="TransformMemory.uss" />
+    </uie:ObjectField>
+</ui:UXML>

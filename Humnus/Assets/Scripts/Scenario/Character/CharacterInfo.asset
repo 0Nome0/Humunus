@@ -1,0 +1,245 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c75ea5cdedb5bb4988d2f1d0f3aba64, type: 3}
+  m_Name: CharacterInfo
+  m_EditorClassIdentifier: 
+  characterList:
+  - facePosition: {x: 0, y: 93.78, z: 0}
+    faceScale: {x: 205.4, y: 207.95}
+    type: 0
+    standImage: {fileID: 21300000, guid: 83bc3babb375d504ba6733dcb47ecb4c, type: 3}
+    emotionList:
+    - type: 0
+      faceImage: {fileID: -1144062676502148343, guid: 90f9ed10e652501418c0b5b149cf98a3,
+        type: 3}
+    - type: 1
+      faceImage: {fileID: 6976401097967223907, guid: 90f9ed10e652501418c0b5b149cf98a3,
+        type: 3}
+    - type: 2
+      faceImage: {fileID: -8260860041881171841, guid: 90f9ed10e652501418c0b5b149cf98a3,
+        type: 3}
+    - type: 3
+      faceImage: {fileID: -2822625509884875944, guid: 90f9ed10e652501418c0b5b149cf98a3,
+        type: 3}
+    - type: 4
+      faceImage: {fileID: -1813767205540064726, guid: 90f9ed10e652501418c0b5b149cf98a3,
+        type: 3}
+    - type: 5
+      faceImage: {fileID: 3129048260046792206, guid: 90f9ed10e652501418c0b5b149cf98a3,
+        type: 3}
+  - facePosition: {x: -28, y: 93.78, z: 0}
+    faceScale: {x: 205.4, y: 207.95}
+    type: 1
+    standImage: {fileID: 21300000, guid: 318f4ff0d2497eb4599cee1cf322cd19, type: 3}
+    emotionList:
+    - type: 0
+      faceImage: {fileID: -4466984691377499560, guid: 8fcbc30db4193504f84cd2a1f9d49998,
+        type: 3}
+    - type: 1
+      faceImage: {fileID: 2341323403304084371, guid: 8fcbc30db4193504f84cd2a1f9d49998,
+        type: 3}
+    - type: 2
+      faceImage: {fileID: -1669775253158547923, guid: 8fcbc30db4193504f84cd2a1f9d49998,
+        type: 3}
+    - type: 3
+      faceImage: {fileID: 7135345221701992477, guid: 8fcbc30db4193504f84cd2a1f9d49998,
+        type: 3}
+    - type: 4
+      faceImage: {fileID: -2482882553404763885, guid: 8fcbc30db4193504f84cd2a1f9d49998,
+        type: 3}
+    - type: 5
+      faceImage: {fileID: -5718703941450075151, guid: 8fcbc30db4193504f84cd2a1f9d49998,
+        type: 3}
+  - facePosition: {x: 0, y: 81.76, z: 0}
+    faceScale: {x: 205.4, y: 205.88}
+    type: 2
+    standImage: {fileID: 21300000, guid: 97cd0a95148738f4c958e0e8fc88bb07, type: 3}
+    emotionList:
+    - type: 0
+      faceImage: {fileID: 5499443898560326389, guid: 60c2a7aa92ab1134abba9d627b9a3fdc,
+        type: 3}
+    - type: 1
+      faceImage: {fileID: 6264858104995792826, guid: 60c2a7aa92ab1134abba9d627b9a3fdc,
+        type: 3}
+    - type: 2
+      faceImage: {fileID: 1493586285601446521, guid: 60c2a7aa92ab1134abba9d627b9a3fdc,
+        type: 3}
+    - type: 3
+      faceImage: {fileID: -1148113176067487896, guid: 60c2a7aa92ab1134abba9d627b9a3fdc,
+        type: 3}
+    - type: 4
+      faceImage: {fileID: 5508168562050716006, guid: 60c2a7aa92ab1134abba9d627b9a3fdc,
+        type: 3}
+    - type: 5
+      faceImage: {fileID: 4548835968735794443, guid: 60c2a7aa92ab1134abba9d627b9a3fdc,
+        type: 3}
+  - facePosition: {x: 2.9, y: 121, z: 0}
+    faceScale: {x: 205.4, y: 205.88}
+    type: 3
+    standImage: {fileID: 21300000, guid: e02681e83c4eb464b8596817f38a41a4, type: 3}
+    emotionList:
+    - type: 0
+      faceImage: {fileID: -6904117196160372492, guid: 99cce7c97cd7e7f488b131d972449e90,
+        type: 3}
+    - type: 1
+      faceImage: {fileID: 1478921523141400654, guid: 99cce7c97cd7e7f488b131d972449e90,
+        type: 3}
+    - type: 2
+      faceImage: {fileID: 339590825739446760, guid: 99cce7c97cd7e7f488b131d972449e90,
+        type: 3}
+    - type: 3
+      faceImage: {fileID: 1978090053850715777, guid: 99cce7c97cd7e7f488b131d972449e90,
+        type: 3}
+    - type: 4
+      faceImage: {fileID: -3858319003331298358, guid: 99cce7c97cd7e7f488b131d972449e90,
+        type: 3}
+    - type: 5
+      faceImage: {fileID: -720426189920318856, guid: 99cce7c97cd7e7f488b131d972449e90,
+        type: 3}
+  - facePosition: {x: 29.67, y: 72.8, z: 0}
+    faceScale: {x: 204.68, y: 205.88}
+    type: 4
+    standImage: {fileID: 21300000, guid: e0586e47fa4c2a94f8f9fb0df2643755, type: 3}
+    emotionList:
+    - type: 0
+      faceImage: {fileID: -6464470888460128139, guid: 36aa1087020cdaf49b62092b7f5f784e,
+        type: 3}
+    - type: 1
+      faceImage: {fileID: 41921478506155124, guid: 36aa1087020cdaf49b62092b7f5f784e,
+        type: 3}
+    - type: 2
+      faceImage: {fileID: -3106558547754533481, guid: 36aa1087020cdaf49b62092b7f5f784e,
+        type: 3}
+    - type: 3
+      faceImage: {fileID: -3872910688064716195, guid: 36aa1087020cdaf49b62092b7f5f784e,
+        type: 3}
+    - type: 4
+      faceImage: {fileID: -4747272640151312711, guid: 36aa1087020cdaf49b62092b7f5f784e,
+        type: 3}
+    - type: 5
+      faceImage: {fileID: 5350102596467864903, guid: 36aa1087020cdaf49b62092b7f5f784e,
+        type: 3}
+  - facePosition: {x: -23, y: 107, z: 0}
+    faceScale: {x: 204.68, y: 205.88}
+    type: 5
+    standImage: {fileID: 21300000, guid: ff421843bf420b445a4d57e56f4279ee, type: 3}
+    emotionList:
+    - type: 0
+      faceImage: {fileID: -6603768711457168055, guid: 550fdcab5b52fbb4fa34a78c4616353f,
+        type: 3}
+    - type: 1
+      faceImage: {fileID: -1950932952336044754, guid: 550fdcab5b52fbb4fa34a78c4616353f,
+        type: 3}
+    - type: 2
+      faceImage: {fileID: 1152612966678770117, guid: 550fdcab5b52fbb4fa34a78c4616353f,
+        type: 3}
+    - type: 3
+      faceImage: {fileID: 7655587063040657131, guid: 550fdcab5b52fbb4fa34a78c4616353f,
+        type: 3}
+    - type: 4
+      faceImage: {fileID: 6986410855480601222, guid: 550fdcab5b52fbb4fa34a78c4616353f,
+        type: 3}
+    - type: 5
+      faceImage: {fileID: 3147958254084491477, guid: 550fdcab5b52fbb4fa34a78c4616353f,
+        type: 3}
+  - facePosition: {x: -12.7, y: 121.2, z: 0}
+    faceScale: {x: 204.68, y: 205.88}
+    type: 6
+    standImage: {fileID: 21300000, guid: a878324725531a34f8ff6a413ec3a500, type: 3}
+    emotionList:
+    - type: 0
+      faceImage: {fileID: -8339817978318491560, guid: 39f92b4e9f3c1b845a0a5eb09604d568,
+        type: 3}
+    - type: 1
+      faceImage: {fileID: 8436706427544775605, guid: 39f92b4e9f3c1b845a0a5eb09604d568,
+        type: 3}
+    - type: 2
+      faceImage: {fileID: 2766817483788779606, guid: 39f92b4e9f3c1b845a0a5eb09604d568,
+        type: 3}
+    - type: 3
+      faceImage: {fileID: -2939071996737110357, guid: 39f92b4e9f3c1b845a0a5eb09604d568,
+        type: 3}
+    - type: 4
+      faceImage: {fileID: 8011007980782221504, guid: 39f92b4e9f3c1b845a0a5eb09604d568,
+        type: 3}
+    - type: 5
+      faceImage: {fileID: 4248861426858760849, guid: 39f92b4e9f3c1b845a0a5eb09604d568,
+        type: 3}
+  - facePosition: {x: -4, y: 78.1, z: 0}
+    faceScale: {x: 204.68, y: 205.88}
+    type: 7
+    standImage: {fileID: 21300000, guid: 29a754e5a53d43347bc48ca5facbd2c3, type: 3}
+    emotionList:
+    - type: 0
+      faceImage: {fileID: -531662842139869091, guid: 5976d650b5d048b47a7e4f872af8f7a2,
+        type: 3}
+    - type: 1
+      faceImage: {fileID: -1840813521614111939, guid: 5976d650b5d048b47a7e4f872af8f7a2,
+        type: 3}
+    - type: 2
+      faceImage: {fileID: 3733382134972270245, guid: 5976d650b5d048b47a7e4f872af8f7a2,
+        type: 3}
+    - type: 3
+      faceImage: {fileID: -4877607598059647144, guid: 5976d650b5d048b47a7e4f872af8f7a2,
+        type: 3}
+    - type: 4
+      faceImage: {fileID: -8298832112110140215, guid: 5976d650b5d048b47a7e4f872af8f7a2,
+        type: 3}
+    - type: 5
+      faceImage: {fileID: -4598364410282783065, guid: 5976d650b5d048b47a7e4f872af8f7a2,
+        type: 3}
+  - facePosition: {x: -42.1, y: 121.9, z: 0}
+    faceScale: {x: 204.68, y: 205.88}
+    type: 8
+    standImage: {fileID: 21300000, guid: ccfc6a8bcf742144f979e57a00dcdac1, type: 3}
+    emotionList:
+    - type: 0
+      faceImage: {fileID: -8001426052314904265, guid: 8eacd8a784bc85246a5d2d49e95ad9f0,
+        type: 3}
+    - type: 1
+      faceImage: {fileID: -195198087696693512, guid: 8eacd8a784bc85246a5d2d49e95ad9f0,
+        type: 3}
+    - type: 2
+      faceImage: {fileID: -7474625375260394509, guid: 8eacd8a784bc85246a5d2d49e95ad9f0,
+        type: 3}
+    - type: 3
+      faceImage: {fileID: -9004685222773747160, guid: 8eacd8a784bc85246a5d2d49e95ad9f0,
+        type: 3}
+    - type: 4
+      faceImage: {fileID: -7014309189531383012, guid: 8eacd8a784bc85246a5d2d49e95ad9f0,
+        type: 3}
+    - type: 5
+      faceImage: {fileID: -7013079211975135517, guid: 8eacd8a784bc85246a5d2d49e95ad9f0,
+        type: 3}
+  - facePosition: {x: -4, y: 100.5, z: 0}
+    faceScale: {x: 204.68, y: 205.88}
+    type: 9
+    standImage: {fileID: 21300000, guid: 722b86d3c75bdc44d9aa7f16dbd0978e, type: 3}
+    emotionList:
+    - type: 0
+      faceImage: {fileID: 5314496237217632358, guid: 4fc37b4d410f2964c85abb244f199103,
+        type: 3}
+    - type: 1
+      faceImage: {fileID: -1364303355008183920, guid: 4fc37b4d410f2964c85abb244f199103,
+        type: 3}
+    - type: 2
+      faceImage: {fileID: 9071651514392718518, guid: 4fc37b4d410f2964c85abb244f199103,
+        type: 3}
+    - type: 3
+      faceImage: {fileID: 4028641652789537779, guid: 4fc37b4d410f2964c85abb244f199103,
+        type: 3}
+    - type: 4
+      faceImage: {fileID: 3637519266990386252, guid: 4fc37b4d410f2964c85abb244f199103,
+        type: 3}
+    - type: 5
+      faceImage: {fileID: 8204790746576071044, guid: 4fc37b4d410f2964c85abb244f199103,
+        type: 3}

@@ -1,0 +1,19 @@
+{
+    "name": "RiValuer-Editor",
+    "references": [
+        "GUID:2eb5c902c2278894cbf1313d4598651e",
+        "GUID:3b0bad2210ab58c4e9f7b19f5434c4a4",
+        "GUID:fe7912327ec2e2c43b3b14124380f29c"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

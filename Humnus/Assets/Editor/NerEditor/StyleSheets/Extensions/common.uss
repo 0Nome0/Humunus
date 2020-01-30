@@ -1,0 +1,48 @@
+﻿
+
+
+
+.unity-theme-env-variables {
+    color: rgba(255, 155, 255, 0.95);
+}
+
+.AppCommandLeftOn {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.AppCommandLeft:hover {
+    background-color: rgba(91, 190, 229, 1);
+}
+
+
+.AppCommandMid:hover {
+    background-color: rgba(91, 190, 229, 1);
+}
+
+.AppCommandRight:hover {
+    background-color: rgba(91, 190, 229, 1);
+}
+
+.AppCommand:hover {
+    background-color: rgba(91, 190, 229, 1);
+}
+
+.AppToolbarButtonLeft:hover {
+    background-color: rgba(91, 190, 229, 1);
+}
+
+.AppToolbarButtonRight:hover {
+    background-color: rgba(91, 190, 229, 1);
+}
+
+.AppToolbar {
+}
+
+.dockHeader {
+    background-color: rgba(255, 0, 102, 0.05);
+}
+
+.Dropdown{
+    background-color: rgba(255, 0, 102, 0.05);
+
+}

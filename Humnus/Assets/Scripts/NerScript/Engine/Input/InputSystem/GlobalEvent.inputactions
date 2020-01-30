@@ -1,0 +1,55 @@
+{
+    "name": "GlobalEvent",
+    "maps": [
+        {
+            "name": "Mouse",
+            "id": "5087146a-36e4-4b01-8d0b-3b69ba468aea",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "eff72858-7fdf-4ce1-ab84-2923eeeb7dcb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a72f9b51-6eb8-4f7b-80ad-4cf357d58446",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "86cc8bed-2328-4174-9e89-908d008b3407",
+                    "path": "<Touchscreen>/press",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "38a85d2b-5d10-4162-b88b-60144c68fd94",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
