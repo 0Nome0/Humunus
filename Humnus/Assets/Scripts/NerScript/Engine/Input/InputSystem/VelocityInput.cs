@@ -8,7 +8,7 @@ using UnityEngine.InputSystem.Utilities;
 
 public class @VelocityInput : IInputActionCollection, IDisposable
 {
-    private InputActionAsset asset;
+    public InputActionAsset asset { get; }
     public @VelocityInput()
     {
         asset = InputActionAsset.FromJson(@"{
