@@ -105,12 +105,14 @@ public class CharaDataDisplayManager : MonoBehaviour
         if (charaFacialData.Length <= currentFacialIndex)
             return;
         c_Manager.TextUpdate();
-        Debug.Log("しゃべっているキャラ:" + CurrentCharaName);
-        Debug.Log("表情:" + FacialName);
+
+        firstCharacter.DisplayCharacterInfo();
+        secondCharacter.DisplayCharacterInfo();
+
         //ナレーション(もしくは同一キャラがしゃべっている)
         if (CurrentCharaName == "")
         {
-
+            //何もしない(同じキャラクターがしゃべっているため)
         }
         else if (CurrentCharaName == "None")
         {

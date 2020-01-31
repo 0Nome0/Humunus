@@ -72,11 +72,6 @@ public class CharaDisplay : MonoBehaviour
     /// </summary>
     public void FadeInCharacter()
     {
-        if (displayData[CurrentIndex] == "In")
-        {
-            ChangeFadeInCharacter();
-            return;
-        }
         if (CharaImage == null)
             return;
         DOTween.To(
@@ -146,5 +141,17 @@ public class CharaDisplay : MonoBehaviour
           .SetEase(Ease.Linear)                         //Easingの指定
           .OnComplete(() => Debug.Log("更新終了"));     //終了後に呼ばれる
         spriteRenderer.sortingOrder = 1;
+    }
+
+    /// <summary>
+    /// データを見て表示するかどうか
+    /// </summary>
+    /// <returns></returns>
+    public void DisplayCharacterInfo()
+    {
+        if (displayData[CurrentIndex] == "In")
+        {
+            ChangeFadeInCharacter();
+        }
     }
 }

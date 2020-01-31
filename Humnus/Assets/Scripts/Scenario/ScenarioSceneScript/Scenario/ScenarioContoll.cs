@@ -16,6 +16,8 @@ public class ScenarioContoll : MonoBehaviour
     private ScenarioBackGround backGround = null;
     [SerializeField]
     private ScenarioSoundManager soundManager = null;
+    [SerializeField]
+    private FadeControl fadeControl = null;
 
     private List<string[]> scenarioData;
     private Timer autoScenarioTimer;
@@ -50,6 +52,7 @@ public class ScenarioContoll : MonoBehaviour
     /// </summary>
     private void Initialize()
     {
+        fadeControl.Initialize();
         soundManager.Initialize();
         s_Manager.Initialize();
         c_Manager.Initialize();
@@ -61,6 +64,7 @@ public class ScenarioContoll : MonoBehaviour
     /// </summary>
     private void LoadData()
     {
+        fadeControl.SetFadeData(GiveScenarioData(LOAD_FADE));
         soundManager.Load();
         soundManager.SetSoundData(GiveScenarioData(LOAD_BGM),GiveScenarioData(LOAD_SE),GiveScenarioData(LOAD_VOICE));
         s_Manager.SetScenario(GiveScenarioData(LOAD_SCENARIO_TEXT));
@@ -74,6 +78,9 @@ public class ScenarioContoll : MonoBehaviour
     {
         if (ScenarioDataInfo.Instance.pauseFlag)
             return;
+        if (fadeControl.FadeFlag)
+            return;
+
         if (s_Manager.ScenarioEndFlag)
         {
             Debug.Log("全部表示しきりました");
@@ -129,6 +136,7 @@ public class ScenarioContoll : MonoBehaviour
     private void ChangeScenarioText()
     {
         ScenarioDataInfo.Instance.scenarioTextIndex++;
+        fadeControl.FadeUpdate();
         soundManager.SoundUpdate();
         s_Manager.TouchToInit();
         c_Manager.TextUpdate();
