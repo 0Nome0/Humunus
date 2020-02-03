@@ -63,50 +63,51 @@ public class OrgPartyManager : MonoBehaviour
 
         if (clickedGameObject.transform.parent.name == "Party")
         {
-            if (choise != null && !isChoiseParty)
-            {
-                if (clickedGameObject.GetComponent<OrgChara>().id <= orgCharas.Count)
-                    orgCharas[clickedGameObject.GetComponent<OrgChara>().id].CanSelect();
-
-                clickedGameObject.GetComponent<OrgChara>().id = choise.GetComponent<OrgChara>().id;
-                clickedGameObject.GetComponent<Image>().sprite = choise.GetComponent<OrgChara>().sprite;
-                choise.GetComponent<OrgChara>().UnChoseColer();
-                orgCharas[clickedGameObject.GetComponent<OrgChara>().id].CantSelect();
-                choise = null;
-            }
-            else
-            {
-                choise = clickedGameObject;
-                isChoiseParty = true;
-            }
         }
         else
         {
             if (!clickedGameObject.GetComponent<OrgChara>().canChoise)
-                return;
-
-            if (isChoiseParty)
             {
-                if (choise.GetComponent<OrgChara>().id <= orgCharas.Count)
-                    orgCharas[choise.GetComponent<OrgChara>().id].CanSelect();
-
-                choise.GetComponent<OrgChara>().id = clickedGameObject.GetComponent<OrgChara>().id;
-                choise.GetComponent<Image>().sprite = clickedGameObject.GetComponent<OrgChara>().sprite;
-                choise.GetComponent<OrgChara>().UnChoseColer();
-                orgCharas[choise.GetComponent<OrgChara>().id].CantSelect();
-                choise = null;
-                isChoiseParty = false;
+                foreach (var x in deck)
+                {
+                    if (x.id == clickedGameObject.GetComponent<OrgChara>().id)
+                    {
+                        x.GetComponent<Image>().sprite = x.sprite;
+                        clickedGameObject.GetComponent<OrgChara>().CanSelect();
+                        foreach (var y in orgCharas)
+                        {
+                            if (y.id != deck[0].id && y.id != deck[1].id)
+                                y.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                        }
+                        x.id = 100;
+                        return;
+                    }
+                }
             }
-            else
+            
+            choise = clickedGameObject;
+
+            foreach (var x in deck)
             {
-                if (choise != null)
-                    choise.GetComponent<OrgChara>().UnChoseColer();
-                choise = clickedGameObject;
+                if (x.id <= orgCharas.Count)
+                    continue;
+
+                x.id = choise.GetComponent<OrgChara>().id;
+                x.gameObject.GetComponent<Image>().sprite = choise.GetComponent<OrgChara>().sprite;
+                choise.GetComponent<OrgChara>().CantSelect();
+                choise = null;
+                break;
             }
         }
-        if (choise != null)
-            choise.GetComponent<OrgChara>().ChoseColor();
 
+        if (deck[0].id != 100 && deck[1].id != 100)
+        {
+            foreach (var x in orgCharas)
+            {
+                if (x.id != deck[0].id && x.id != deck[1].id)
+                    x.gameObject.GetComponent<Image>().color -= new Color(1, 1, 1, 0);
+            }
+        }
     }
 
     void CreateCharaButton()
@@ -116,7 +117,6 @@ public class OrgPartyManager : MonoBehaviour
             GameObject obj = Instantiate(charaButton, new Vector3(-1.5f + ((i % 3) * 1.5f), 0 - 1.5f * (int)(i / 3)), Quaternion.identity);
             obj.GetComponent<OrgChara>().id = i;
             obj.GetComponent<Image>().sprite = characters[i];
-            obj.GetComponent<Image>().color -= new Color(0, 0, 0, 0.5f);
             obj.transform.SetParent(GameObject.Find("Content").transform);
             orgCharas.Add(obj.GetComponent<OrgChara>());
         }
