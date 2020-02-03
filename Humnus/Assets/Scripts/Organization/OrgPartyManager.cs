@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class OrgPartyManager : MonoBehaviour
 {
-    GameObject choise;
     GameObject clickedGameObject;
+    OrgChara clickOrg;
+
     [SerializeField]
     GameObject charaButton;
     [SerializeField]
@@ -15,9 +16,7 @@ public class OrgPartyManager : MonoBehaviour
 
     OrgChara[] deck = new OrgChara[2];
     List<OrgChara> orgCharas = new List<OrgChara>();
-
-    bool isChoiseParty;
-
+    
     PointerEventData pointer;
 
     // Start is called before the first frame update
@@ -59,45 +58,40 @@ public class OrgPartyManager : MonoBehaviour
 
         if (!clickedGameObject.name.Contains("Button"))
             return;
-        
 
         if (clickedGameObject.transform.parent.name == "Party")
-        {
-        }
-        else
-        {
-            if (!clickedGameObject.GetComponent<OrgChara>().canChoise)
-            {
-                foreach (var x in deck)
-                {
-                    if (x.id == clickedGameObject.GetComponent<OrgChara>().id)
-                    {
-                        x.GetComponent<Image>().sprite = x.sprite;
-                        clickedGameObject.GetComponent<OrgChara>().CanSelect();
-                        foreach (var y in orgCharas)
-                        {
-                            if (y.id != deck[0].id && y.id != deck[1].id)
-                                y.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 1);
-                        }
-                        x.id = 100;
-                        return;
-                    }
-                }
-            }
-            
-            choise = clickedGameObject;
+            return;
 
+        clickOrg = clickedGameObject.GetComponent<OrgChara>();
+
+        if (!clickOrg.canChoise)
+        {
             foreach (var x in deck)
             {
-                if (x.id <= orgCharas.Count)
-                    continue;
-
-                x.id = choise.GetComponent<OrgChara>().id;
-                x.gameObject.GetComponent<Image>().sprite = choise.GetComponent<OrgChara>().sprite;
-                choise.GetComponent<OrgChara>().CantSelect();
-                choise = null;
-                break;
+                if (x.id == clickOrg.id)
+                {
+                    x.GetComponent<Image>().sprite = x.sprite;
+                    clickOrg.CanSelect();
+                    foreach (var y in orgCharas)
+                    {
+                        if (y.id != deck[0].id && y.id != deck[1].id)
+                            y.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                    }
+                    x.id = 100;
+                    return;
+                }
             }
+        }
+
+        foreach (var x in deck)
+        {
+            if (x.id <= orgCharas.Count)
+                continue;
+
+            x.id = clickOrg.id;
+            x.gameObject.GetComponent<Image>().sprite = clickOrg.sprite;
+            clickOrg.CantSelect();
+            break;
         }
 
         if (deck[0].id != 100 && deck[1].id != 100)
