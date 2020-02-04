@@ -312,8 +312,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 94185581}
   m_HandleRect: {fileID: 94185580}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.59901905
+  m_Value: 1.0000033
+  m_Size: 0.6
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -441,7 +441,6 @@ GameObject:
   - component: {fileID: 266912307}
   - component: {fileID: 266912306}
   - component: {fileID: 266912305}
-  - component: {fileID: 266912308}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -461,7 +460,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2081698627}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -510,19 +509,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 266912306}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 266912308}
-        m_TargetAssemblyTypeName: BackButton, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &266912306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,18 +547,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266912303}
   m_CullTransparentMesh: 0
---- !u!114 &266912308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 266912303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61d17fcfceb82d46bd51cfe8f912eba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &294648136
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,7 +715,7 @@ RectTransform:
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_Children: []
   m_Father: {fileID: 2081698627}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1811,7 +1786,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 90, y: 179.99998}
+  m_AnchoredPosition: {x: 90, y: 179.9996}
   m_SizeDelta: {x: 180, y: 300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1738233282
@@ -1844,7 +1819,7 @@ RectTransform:
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_Children: []
   m_Father: {fileID: 2081698627}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2321,9 +2296,9 @@ RectTransform:
   - {fileID: 779069894}
   - {fileID: 1158609276}
   - {fileID: 722207795}
-  - {fileID: 266912304}
   - {fileID: 601853573}
   - {fileID: 1738233283}
+  - {fileID: 266912304}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
