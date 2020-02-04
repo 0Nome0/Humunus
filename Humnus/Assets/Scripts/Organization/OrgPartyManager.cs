@@ -141,6 +141,7 @@ public class OrgPartyManager : MonoBehaviour
         {
             GameObject obj = Instantiate(charaButton, new Vector2(-1.5f + ((i % 3) * 1.5f), 0 - 1.5f * (int)(i / 3) + 0.5f), Quaternion.identity);
             obj.transform.SetParent(GameObject.Find("Content").transform);
+            obj.transform.localPosition = new Vector2(-1.5f + ((i % 3) * 1.5f) + 0.15f, 0 - 1.5f * (int)(i / 3) - 0.8f) * 40;
             obj = obj.transform.GetChild(0).gameObject;
             obj.GetComponent<OrgChara>().id = i;
             obj.GetComponent<Image>().sprite = characters[i];
