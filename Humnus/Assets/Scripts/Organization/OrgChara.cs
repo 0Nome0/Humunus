@@ -9,6 +9,12 @@ public class OrgChara : MonoBehaviour
     public Sprite sprite { get; set; }
     public bool canChoise { get; private set; }
 
+    [SerializeField]
+    Sprite back;
+    [SerializeField]
+    Sprite selectedBack;
+
+
     Image image;
     // Start is called before the first frame update
     void Start()
@@ -33,12 +39,12 @@ public class OrgChara : MonoBehaviour
     }
     public void CantSelect()
     {
-        image.color -= new Color(0.5f, 0.5f, 0.5f, 0);
+        transform.parent.GetComponent<Image>().sprite = selectedBack;
         canChoise = false;
     }
     public void CanSelect()
     {
-        image.color += new Color(0.5f, 0.5f, 0.5f, 0);
+        transform.parent.GetComponent<Image>().sprite = back;
         canChoise = true;
     }
 }

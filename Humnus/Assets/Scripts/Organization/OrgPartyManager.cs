@@ -13,6 +13,8 @@ public class OrgPartyManager : MonoBehaviour
     GameObject charaButton;
     [SerializeField]
     List<Sprite> characters;
+    [SerializeField]
+    OrgButton button;
 
     OrgChara[] deck = new OrgChara[2];
     List<OrgChara> orgCharas = new List<OrgChara>();
@@ -32,9 +34,19 @@ public class OrgPartyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Application.isEditor)
         {
-            Click();
+            if (Input.GetMouseButtonUp(0))
+            {
+                Click();
+            }
+        }
+        else
+        {
+            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
+                Click();
+            }
         }
     }
 
@@ -43,23 +55,31 @@ public class OrgPartyManager : MonoBehaviour
         clickedGameObject = null;
 
         List<RaycastResult> results = new List<RaycastResult>();
-        pointer.position = Input.mousePosition;
+        if (Application.isEditor)
+            pointer.position = Input.mousePosition;
+        else
+            pointer.position = Input.GetTouch(0).position;
         EventSystem.current.RaycastAll(pointer, results);
 
         if (results.Count == 0)
             return;
 
-        var hit2d = results[0].gameObject;
+        GameObject hit2d = results[0].gameObject;
+        foreach (var x in results)
+        {
+            if (x.gameObject.name.Contains("Button"))
+            {
+                hit2d = x.gameObject;
+                break;
+            }
+        }
 
         if (hit2d)
         {
             clickedGameObject = hit2d.transform.gameObject;
         }
 
-        if (!clickedGameObject.name.Contains("Button"))
-            return;
-
-        if (clickedGameObject.transform.parent.name == "Party")
+        if (!(clickedGameObject.name == "Button"))
             return;
 
         clickOrg = clickedGameObject.GetComponent<OrgChara>();
@@ -75,12 +95,20 @@ public class OrgPartyManager : MonoBehaviour
                     foreach (var y in orgCharas)
                     {
                         if (y.id != deck[0].id && y.id != deck[1].id)
+                        {
                             y.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                            button.CantStart();
+                        }
                     }
                     x.id = 100;
                     return;
                 }
             }
+        }
+
+        if (deck[0].id != 100 && deck[1].id != 100)
+        {
+            return;
         }
 
         foreach (var x in deck)
@@ -99,7 +127,10 @@ public class OrgPartyManager : MonoBehaviour
             foreach (var x in orgCharas)
             {
                 if (x.id != deck[0].id && x.id != deck[1].id)
-                    x.gameObject.GetComponent<Image>().color -= new Color(1, 1, 1, 0);
+                {
+                    x.gameObject.GetComponent<Image>().color -= new Color(0.5f, 0.5f, 0.5f, 0);
+                    button.CanStart();
+                }
             }
         }
     }
@@ -108,10 +139,11 @@ public class OrgPartyManager : MonoBehaviour
     {
         for (int i = 0; i < characters.Count; i++)
         {
-            GameObject obj = Instantiate(charaButton, new Vector3(-1.5f + ((i % 3) * 1.5f), 0 - 1.5f * (int)(i / 3)), Quaternion.identity);
+            GameObject obj = Instantiate(charaButton, new Vector2(-1.5f + ((i % 3) * 1.5f), 0 - 1.5f * (int)(i / 3) + 0.5f), Quaternion.identity);
+            obj.transform.SetParent(GameObject.Find("Content").transform);
+            obj = obj.transform.GetChild(0).gameObject;
             obj.GetComponent<OrgChara>().id = i;
             obj.GetComponent<Image>().sprite = characters[i];
-            obj.transform.SetParent(GameObject.Find("Content").transform);
             orgCharas.Add(obj.GetComponent<OrgChara>());
         }
     }
