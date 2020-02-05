@@ -312,8 +312,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 94185581}
   m_HandleRect: {fileID: 94185580}
   m_Direction: 2
-  m_Value: 2.7367208
-  m_Size: 0.00000026537023
+  m_Value: 1.0002769
+  m_Size: 0.46138746
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -441,6 +441,7 @@ GameObject:
   - component: {fileID: 266912307}
   - component: {fileID: 266912306}
   - component: {fileID: 266912305}
+  - component: {fileID: 266912308}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -509,7 +510,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 266912306}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 266912308}
+        m_TargetAssemblyTypeName: NerScript.Games.SceneTransitioner, Assembly-CSharp
+        m_MethodName: NextAsync
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &266912306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +560,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266912303}
   m_CullTransparentMesh: 0
+--- !u!114 &266912308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266912303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af1daefcb42e624086b213cb2dc9f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: MusicSelect
 --- !u!1 &294648136
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,6 +586,7 @@ GameObject:
   - component: {fileID: 294648139}
   - component: {fileID: 294648138}
   - component: {fileID: 294648141}
+  - component: {fileID: 294648142}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -630,7 +657,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 294648139}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 294648142}
+        m_TargetAssemblyTypeName: NerScript.Games.SceneTransitioner, Assembly-CSharp
+        m_MethodName: NextAsync
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &294648139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,6 +724,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4b4dc9fabf3423d438a5d6c216c90cbc, type: 3}
   - {fileID: 21300000, guid: 66b092d5d649e534d86fd7f932b1c0fb, type: 3}
   - {fileID: 21300000, guid: 0ca80596cf065a14a926780a228ea268, type: 3}
+--- !u!114 &294648142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294648136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af1daefcb42e624086b213cb2dc9f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: MusicPlay
 --- !u!1 &601853572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,7 +1838,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 90, y: 65.79675}
+  m_AnchoredPosition: {x: 90, y: 169.98337}
   m_SizeDelta: {x: 180, y: 230}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1738233282
