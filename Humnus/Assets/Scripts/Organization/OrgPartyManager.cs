@@ -84,6 +84,9 @@ public class OrgPartyManager : MonoBehaviour
 
         clickOrg = clickedGameObject.GetComponent<OrgChara>();
 
+        if (!orgCharas.Contains(clickOrg))
+            return;
+
         if (!clickOrg.canChoise)
         {
             foreach (var x in deck)
@@ -139,13 +142,17 @@ public class OrgPartyManager : MonoBehaviour
     {
         for (int i = 0; i < characters.Count; i++)
         {
-            GameObject obj = Instantiate(charaButton, new Vector2(-1.5f + ((i % 3) * 1.5f), 0 - 1.5f * (int)(i / 3) + 0.5f), Quaternion.identity);
+            GameObject obj = Instantiate(charaButton, Vector2.zero, Quaternion.identity);
             obj.transform.SetParent(GameObject.Find("Content").transform);
-            obj.transform.localPosition = new Vector2(-1.5f + ((i % 3) * 1.5f) + 0.15f, 0 - 1.5f * (int)(i / 3) - 0.8f) * 40;
+            obj.transform.localPosition = new Vector2(-1.5f + ((i % 3) * 1.45f) + 0.15f, 0 - 1.45f * (int)(i / 3) - 0.7f) * 40;
             obj = obj.transform.GetChild(0).gameObject;
             obj.GetComponent<OrgChara>().id = i;
             obj.GetComponent<Image>().sprite = characters[i];
-            orgCharas.Add(obj.GetComponent<OrgChara>());
+
+            if (i >= 6)
+                obj.GetComponent<OrgChara>().CantUse();
+            else
+                orgCharas.Add(obj.GetComponent<OrgChara>());
         }
     }
 }

@@ -13,8 +13,7 @@ public class OrgChara : MonoBehaviour
     Sprite back;
     [SerializeField]
     Sprite selectedBack;
-
-
+    
     Image image;
     // Start is called before the first frame update
     void Start()
@@ -28,15 +27,7 @@ public class OrgChara : MonoBehaviour
     void Update()
     {
     }
-
-    public void ChoseColor()
-    {
-        image.color += new Color(0, 0, 0, 0.5f);
-    }
-    public void UnChoseColer()
-    {
-        image.color -= new Color(0, 0, 0, 0.5f);
-    }
+    
     public void CantSelect()
     {
         transform.parent.GetComponent<Image>().sprite = selectedBack;
@@ -46,5 +37,10 @@ public class OrgChara : MonoBehaviour
     {
         transform.parent.GetComponent<Image>().sprite = back;
         canChoise = true;
+    }
+    public void CantUse()
+    {
+        GetComponent<Image>().color = Color.black;
+        canChoise = false;
     }
 }
