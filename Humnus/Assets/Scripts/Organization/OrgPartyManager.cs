@@ -15,6 +15,8 @@ public class OrgPartyManager : MonoBehaviour
     List<Sprite> characters;
     [SerializeField]
     OrgButton button;
+    [SerializeField]
+    List<int> dontUseId;
 
     OrgChara[] deck = new OrgChara[2];
     List<OrgChara> orgCharas = new List<OrgChara>();
@@ -84,7 +86,7 @@ public class OrgPartyManager : MonoBehaviour
 
         clickOrg = clickedGameObject.GetComponent<OrgChara>();
 
-        if (!orgCharas.Contains(clickOrg))
+        if (clickOrg.cantUse)
             return;
 
         if (!clickOrg.canChoise)
@@ -99,6 +101,8 @@ public class OrgPartyManager : MonoBehaviour
                     {
                         if (y.id != deck[0].id && y.id != deck[1].id)
                         {
+                            if (y.cantUse)
+                                continue;
                             y.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 1);
                             button.CantStart();
                         }
@@ -149,10 +153,10 @@ public class OrgPartyManager : MonoBehaviour
             obj.GetComponent<OrgChara>().id = i;
             obj.GetComponent<Image>().sprite = characters[i];
 
-            if (i >= 6)
+            if (dontUseId.Contains(i))
                 obj.GetComponent<OrgChara>().CantUse();
-            else
-                orgCharas.Add(obj.GetComponent<OrgChara>());
+
+            orgCharas.Add(obj.GetComponent<OrgChara>());
         }
     }
 }

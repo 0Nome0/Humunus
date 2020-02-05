@@ -8,6 +8,7 @@ public class OrgChara : MonoBehaviour
     public int id { get; set; }
     public Sprite sprite { get; set; }
     public bool canChoise { get; private set; }
+    public bool cantUse { get; private set; }
 
     [SerializeField]
     Sprite back;
@@ -42,5 +43,6 @@ public class OrgChara : MonoBehaviour
     {
         GetComponent<Image>().color = Color.black;
         canChoise = false;
+        cantUse = true;
     }
 }
