@@ -110,7 +110,7 @@ namespace NerScript
                 ClearSelect();
             }
         }
-        private int Clamped(int index) => loopSelect ? index.Repeat(Count) : index.Clamp(0, Count - 1);
+        private int Clamped(int index) => loopSelect ? index.Repeat(Count) : index.Clamped(0, Count - 1);
         private bool IsInRange(int index) => index.ContainsIn(0, Count - 1);
     }
 }

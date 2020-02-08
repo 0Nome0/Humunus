@@ -7,9 +7,9 @@ namespace NerScript
     public class Gauge
     {
         [NonSerialized] public bool overflow = false;
-        public int Current { get => current; set => current = overflow ? value : value.Clamp(0, max); }
+        public int Current { get => current; set => current = overflow ? value : value.Clamped(0, max); }
         [SerializeField] protected int current = 0;
-        public int Max { get => max; set => max = value.ClampMin(0); }
+        public int Max { get => max; set => max = value.ClampedMin(0); }
         [SerializeField] protected int max = 0;
 
         public bool Empty => Current <= 0;

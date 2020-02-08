@@ -40,7 +40,7 @@ namespace NerScript.Editor
             public static int UpdateRepaintInterval
             {
                 get => updateRepaintInterval;
-                set => updateRepaintInterval = value.ClampMin(0);
+                set => updateRepaintInterval = value.ClampedMin(0);
             }
             private static int updateRepaintInterval = 0;
         }

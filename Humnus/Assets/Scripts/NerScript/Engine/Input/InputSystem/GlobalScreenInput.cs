@@ -28,7 +28,7 @@ public class GlobalScreenInput : SingletonClass<GlobalScreenInput>, GlobalEvent.
             if (Mouse.current != null && Mouse.current.delta.ReadValue() != Vector2.zero)
             {
                 Debug.Log("mouseMove!");
-                delta = Pointer.current.delta.ReadValue();
+                delta = Mouse.current.delta.ReadValue();
             }
             else if (Touchscreen.current != null && Touchscreen.current.delta.ReadValue() != Vector2.zero)
             {

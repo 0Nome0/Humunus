@@ -21,7 +21,7 @@ namespace NerScript
 
     public abstract class SwitcherBase<T> : ISwitcher<T>
     {
-        public int Index { get => index; set => index = value.Clamp(0, values.Count); }
+        public int Index { get => index; set => index = value.Clamped(0, values.Count); }
         private int index = 0;
 
         public T Value { get => values[Index]; set => values[Index] = value; }
