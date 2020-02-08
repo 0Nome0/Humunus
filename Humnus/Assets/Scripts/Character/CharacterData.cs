@@ -10,7 +10,11 @@ public class CharacterData : ScriptableObject, IManagedByID
 {
     [SerializeField] public int ID { get; set; }
 
-    public string characterName = "";
-    public Sprite icon = null;
-    public string info = "";
+    public string characterName;
+    public Sprite icon;
+    public string info;
+    public int hp = 1;
+
+    public string skillName;
+    public string skillInfo;
 }

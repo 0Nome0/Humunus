@@ -40,8 +40,8 @@ namespace NerScript.Resource.Editor
 
             public float LayoutWidth
             {
-                get => layoutWidth.Clamp(300, 350);
-                set => layoutWidth = value.Clamp(300, 350);
+                get => layoutWidth;
+                set => layoutWidth = value.Clamped(300, 350);
             }
             [SerializeField] private float layoutWidth = 200;
 

@@ -218,7 +218,7 @@ namespace NerScript.Anime.Builder.Editor
                 if (change.changed)
                 {
                     Undo.RecordObject(info.builder, "changeFrame");
-                    anim.frame = frame.ClampMin(1);
+                    anim.frame = frame.ClampedMin(1);
                 }
             }
         }
@@ -348,7 +348,7 @@ namespace NerScript.Anime.Builder.Editor
                     Undo.RecordObject(info.builder, "changeBuilderAnim");
                     anim.components.SetCount(size);
                     anim.strings.SetCount(size);
-                    anim.frame = frame.ClampMin(0);
+                    anim.frame = frame.ClampedMin(0);
                 }
             }
             for (int i = 0; i < anim.components.Count; i++)

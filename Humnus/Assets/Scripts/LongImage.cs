@@ -11,14 +11,17 @@ public class LongImage : MonoBehaviour
 
     public Transform tr1;
     public Transform tr2;
+    public float offset = 10;
 
-
+    private Camera cam;
+    private RectTransform rect;
 
 
 
     private void Start()
     {
-
+        cam = Camera.main;
+        rect = (RectTransform)transform;
     }
 
 
@@ -34,7 +37,8 @@ public class LongImage : MonoBehaviour
             return;
         }
 
-        Vector3 dist = tr2.localPosition - tr1.localPosition;
+        Vector3 dist = tr2.position - tr1.position;
+        dist *= offset;
         transform.position = (tr2.position + tr1.position) / 2.0f;
         RectTransform rte = (RectTransform)transform;
         rte.sizeDelta = rte.sizeDelta.SetedY(dist.magnitude);

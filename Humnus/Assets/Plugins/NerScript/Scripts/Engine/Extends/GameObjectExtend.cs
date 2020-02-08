@@ -152,15 +152,13 @@ namespace NerScript
         /// <summary>
         /// 破棄
         /// </summary>
-        public static GameObject Destroy(this GameObject self)
+        public static void Destroy(this GameObject self)
         {
             Object.Destroy(self);
-            return self;
         }
-        public static GameObject Destroy(this GameObject self, float time)
+        public static void DestroyGameObject(this Component self)
         {
-            Object.Destroy(self, time);
-            return self;
+            Object.Destroy(self.gameObject);
         }
         /// <summary>
         /// DontDestroyOnLoadにする
@@ -175,9 +173,6 @@ namespace NerScript
         /// <summary>
         /// タグの設定
         /// </summary>
-        /// <param name="self"></param>
-        /// <param name="tag"></param>
-        /// <returns></returns>
         public static GameObject SetTag(this GameObject self, string tag)
         {
             self.tag = tag;
@@ -186,19 +181,9 @@ namespace NerScript
         /// <summary>
         /// タグのチェック
         /// </summary>
-        /// <param name="self"></param>
-        /// <param name="tags"></param>
-        /// <returns></returns>
         public static bool CheckTag(this GameObject self, params string[] tags)
         {
-            foreach (var t in tags)
-            {
-                if (self.tag == t)
-                {
-                    return true;
-                }
-            }
-            return false;
+            return tags.Any(self.CompareTag);
         }
         #endregion
 
@@ -206,9 +191,6 @@ namespace NerScript
         /// <summary>
         /// 子供を追加
         /// </summary>
-        /// <param name="self"></param>
-        /// <param name="child"></param>
-        /// <returns></returns>
         public static GameObject AddChild(this GameObject self, GameObject child)
         {
             self.AddChild(child.transform);
@@ -222,9 +204,6 @@ namespace NerScript
         /// <summary>
         /// 親を設定
         /// </summary>
-        /// <param name="self"></param>
-        /// <param name="parent"></param>
-        /// <returns></returns>
         public static GameObject SetParent(this GameObject self, GameObject parent)
         {
             parent.AddChild(self);
@@ -238,8 +217,6 @@ namespace NerScript
         /// <summary>
         /// 親の設定を無効
         /// </summary>
-        /// <param name="self"></param>
-        /// <returns></returns>
         public static GameObject SetParent(this GameObject self)
         {
             self.transform.SetParent();
@@ -248,8 +225,6 @@ namespace NerScript
         /// <summary>
         /// 子供のオブジェクト取得
         /// </summary>
-        /// <param name="self"></param>
-        /// <returns></returns>
         public static GameObject GetChild(this GameObject self, int index = 0)
         {
             return self.transform.GetChild(index).gameObject;
@@ -257,8 +232,6 @@ namespace NerScript
         /// <summary>
         /// 子供のオブジェクトをすべて取得
         /// </summary>
-        /// <param name="self"></param>
-        /// <returns></returns>
         public static List<GameObject> GetChildren(this GameObject self)
         {
             return self.transform.GetChildrenG().ToList();
@@ -266,9 +239,6 @@ namespace NerScript
         /// <summary>
         /// 条件に一致した子供だけ取得
         /// </summary>
-        /// <param name="self"></param>
-        /// <param name="match"></param>
-        /// <returns></returns>
         public static List<GameObject> GetChildren(this GameObject self, Predicate<GameObject> match)
         {
             List<GameObject> objs = self.GetChildren();
@@ -279,8 +249,6 @@ namespace NerScript
         /// <summary>
         /// 親を取得
         /// </summary>
-        /// <param name="self"></param>
-        /// <returns></returns>
         public static Transform GetParent(this GameObject self)
         {
             return self.transform.parent;
