@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd1ed8d4816d424e8acca5641e16873, type: 3}
+  m_Name: c11
+  m_EditorClassIdentifier: 
+  characterName: "\u30AD\u30E3\u30E911"
+  icon: {fileID: 21300000, guid: 39b07f6d852aea443b273a69b8ba43b7, type: 3}
+  info: 
+  hp: 1
+  skillName: 
+  skillInfo: 

@@ -1,11 +1,20 @@
 ﻿public enum PlayerID
 {
-    //hp5,100コンボまでmissでもコンボが途切れない
-    //hp5,HP+30
-    //hp5,フィーバー時missにならない
-    //hp5,goodを5回perfectにする
-    //hp3,hp0時に最大まで回復
-    //hp5,3回だけmissを
-    //hp2,すべてperfectに、ダメージ２倍
-    //hp1,コンボ60でスコアアップ、70でも。ダメージ２倍
+    None,
+    Type1,//hp5,100コンボまでmissでもコンボが途切れない
+    Type2,//hp5,HP+30
+    Type3,//hp5,フィーバー時missにならない
+    Type4,//hp5,goodを5回perfectにする
+    Type5,//hp3,hp0時に最大まで回復
+    Type6,//hp5,3回だけmissを
+    Type7,//hp2,すべてperfectに、ダメージ２倍
+    Type8,//hp1,コンボ60でスコアアップ、70でも。ダメージ２倍
+    Type9,
+    Type10,
+    Type11,
+    Type12,
+    Type13,
+    Type14,
+    Type15,
+    Type16,
 }

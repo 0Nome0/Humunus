@@ -15,29 +15,29 @@ MonoBehaviour:
   m_GroupName: Audios
   m_Data:
     m_SerializedData: []
-  m_GUID: ee99c19fd31013d42bfd49c3514fccc4
+  m_GUID: bda6a3b299ada184ba02442fc4506696
   m_SerializeEntries:
   - m_GUID: 04d1e9e63bb18964cb36076aede97c69
     m_Address: BGM
     m_ReadOnly: 0
     m_SerializedLabels:
-    - BGM
     - Audio
+    - BGM
   - m_GUID: 54727b3ac2ad16d42889e5afc7ae8acd
     m_Address: SE
     m_ReadOnly: 0
     m_SerializedLabels:
-    - SE
     - Audio
+    - SE
   - m_GUID: e517793dd52bad0418268db9fa5174ae
     m_Address: Voice
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Voice
     - Audio
+    - Voice
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 254b70f22e22ae94687d9b99cee682e0, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 8ba6fe91e48aa9b4f9423679ace95bfc, type: 2}
-    - {fileID: 11400000, guid: 1853b7930b04c0a45a047c5d1a3b07c6, type: 2}
+    - {fileID: 11400000, guid: 3948e87d9a4b66b4db9cacbef7045476, type: 2}
+    - {fileID: 11400000, guid: 1556ac5e7370f4a4cb64b1fb14b09828, type: 2}

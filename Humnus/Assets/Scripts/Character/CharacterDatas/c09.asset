@@ -15,3 +15,6 @@ MonoBehaviour:
   characterName: "\u30AD\u30E3\u30E99"
   icon: {fileID: 21300000, guid: a3f145978a353ef4cb9bd381ca8f2bfb, type: 3}
   info: 
+  hp: 1
+  skillName: 
+  skillInfo: 
