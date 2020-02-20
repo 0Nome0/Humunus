@@ -23,13 +23,14 @@ public enum NoteJudge
 
 public class PlayScoreManager : MonoBehaviour
 {
+    public Player player = null;
     [SerializeField, ReadOnlyOnInspector] private int score;
     public int combo;
 
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private TextMeshProUGUI scoreText;
     public TextMeshProUGUI comboText;
-
+    public bool allPerfect = true;
 
 
     private ObjectAnimationController textAnimController = null;
@@ -50,28 +51,42 @@ public class PlayScoreManager : MonoBehaviour
 
     private void Combo(bool isCombo)
     {
-        combo++;
         if(isCombo)
         {
-            comboText.text =
-            combo + "\nCombo!";
+            if(PlayCharacter.HasPlayer(PlayerID.Orphia))
+            {
+                PlayCharacter.Count(PlayerID.Orphia).Value++;
+                if(60 < PlayCharacter.Count(PlayerID.Orphia).Value)
+                {
+                    PlayCharacter.Count(PlayerID.Orphia).Value = 0;
+                }
+            }
+            if(PlayCharacter.HasPlayer(PlayerID.Renos))
+            {
+                player.hitPoint.Heal(20);
+            }
+            combo++;
+            comboText.text = combo + "\nCombo!";
         }
         else
         {
+            if(PlayCharacter.HasPlayer(PlayerID.Orphia))
+            {
+                PlayCharacter.Count(PlayerID.Orphia).Value = 0;
+            }
             combo = 0;
             comboText.text = combo + "\nCombo!";
         }
     }
 
 
-    public void Score(NoteJudge judge, int _score)
+    public void Score(NoteJudge judge, float _score)
     {
-        int bonusPlus = PlayCharacter.HasPlayer(PlayerID.Type8) ? 2 : 0;
+        int bonusPlus = PlayCharacter.HasPlayer(PlayerID.Clemona) ? 2 : 0;
         float bonus = 1 + combo.Digit().ClampedMax(5 + bonusPlus) * 0.1f;
-        float tempScore = _score * bonus;
-        _score = (int)tempScore;
+        _score = _score * bonus;
 
-        score += _score;
+        score += (int)_score;
         scoreText.text = "Score : " + score;
         text.text = judge.ToString();
         switch(judge)
@@ -82,15 +97,11 @@ public class PlayScoreManager : MonoBehaviour
                 break;
             case NoteJudge.Great:
                 Combo(true);
-                break;
-            case NoteJudge.Good:
-                Combo(true);
-                break;
-            case NoteJudge.Bad:
-                Combo(false);
+                allPerfect = false;
                 break;
             case NoteJudge.Miss:
-                if(PlayCharacter.HasPlayer(PlayerID.Type1) && combo <= 100) Combo(true);
+                allPerfect = false;
+                if(PlayCharacter.HasPlayer(PlayerID.Lucius) && combo <= 100) Combo(true);
                 else Combo(false);
                 break;
         }
@@ -103,5 +114,14 @@ public class PlayScoreManager : MonoBehaviour
             .LclMoveRel(0, -20, 0, 1)
             .RepeatAnim(1)
             .AnimationStart();
+    }
+
+    public void MusicEnd()
+    {
+        if(PlayCharacter.HasPlayer(PlayerID.Kruvy) && allPerfect)
+        {
+            score += 5000;
+            scoreText.text = "Score : " + score;
+        }
     }
 }

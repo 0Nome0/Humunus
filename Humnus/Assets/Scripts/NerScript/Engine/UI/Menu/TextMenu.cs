@@ -5,7 +5,6 @@ using NerScript;
 using NerScript.Input;
 using TMPro;
 using UniRx;
-using UnityEditorInternal;
 using UnityEngine;
 using SelectMemory = NerScript.Memorable<TextMenu.SelectData>;
 

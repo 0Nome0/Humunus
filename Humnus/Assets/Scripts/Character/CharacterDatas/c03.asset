@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd1ed8d4816d424e8acca5641e16873, type: 3}
   m_Name: c03
   m_EditorClassIdentifier: 
-  characterName: "\u30AD\u30E3\u30E93"
-  icon: {fileID: 21300000, guid: 50b5a76b0aff81d45bd0f8ebedd75ba9, type: 3}
+  characterName: "\u30C6\u30AA\u30D0\u30EB\u30C8"
+  icon: {fileID: 21300000, guid: a59ad8942038ca74fb162e38c20bed39, type: 3}
   info: 
+  hp: 1
+  skillName: "\u4FFA\u306E\u7E4A\u7D30\u306A\u97F3\u3092\u3001\u805E\u304D\u9003\u3059\u306A\u3088\u2026\uFF01"
+  skillInfo: 

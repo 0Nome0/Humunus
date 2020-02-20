@@ -40,7 +40,7 @@ public class UIObjectLayout : MonoBehaviour
     public void Layout(int? count, Action<GameObject, int> onCreated)
     {
         Validate();
-        layout.Layout(count, (v, i) =>
+        layout.Layout(count ?? 0, (v, i) =>
         {
             GameObject obj = Instantiate(original.gameObject, transform);
             obj.transform.localPosition = v;

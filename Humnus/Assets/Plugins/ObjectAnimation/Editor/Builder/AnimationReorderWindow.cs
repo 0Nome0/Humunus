@@ -58,7 +58,7 @@ namespace NerScript.Anime.Builder.Editor
                 tex.SetPixel(0, 0, new Color(1f, 0.8f, 0.8f, 0.5f));
             }
             tex.Apply();
-            GUI.DrawTexture(rect, tex as Texture);
+            GUI.DrawTexture(rect, tex);
         }
         private void DrawElement(Rect rect, int index, bool isActive, bool isFocused)
         {

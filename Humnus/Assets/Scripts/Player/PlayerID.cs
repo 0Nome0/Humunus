@@ -1,20 +1,20 @@
 ﻿public enum PlayerID
 {
-    None,
-    Type1,//hp5,100コンボまでmissでもコンボが途切れない
-    Type2,//hp5,HP+30
-    Type3,//hp5,フィーバー時missにならない
-    Type4,//hp5,goodを5回perfectにする
-    Type5,//hp3,hp0時に最大まで回復
-    Type6,//hp5,3回だけmissを
-    Type7,//hp2,すべてperfectに、ダメージ２倍
-    Type8,//hp1,コンボ60でスコアアップ、70でも。ダメージ２倍
-    Type9,
-    Type10,
-    Type11,
-    Type12,
-    Type13,
-    Type14,
-    Type15,
-    Type16,
+    None = -1,
+    Lucius,     //100コンボまでmissでもコンボが途切れない
+    Tem,        //HP+50
+    Theobald,   //フィーバー時missにならない
+    Nicola,     //goodを5回perfectにする
+    Orphia,     //hp0時に最大まで回復
+    Filo,       //3回だけmissを
+    Cello,      //すべてperfectに、ダメージ２倍
+    Clemona,    //コンボ60でスコアアップ、70でも。ダメージ２倍
+    Valen,      //スキル無効スキル
+    Casartilio, //ダメージ軽減
+    Lycopodia,  //リジェネ
+    Barometer,  //2秒間無敵
+    Renos,      //50コンボで２０回復
+    Kruvy,      //all perfectでスコアアップ
+    Irishio,    //ふぃーばーボーナス２倍
+    Golem,      //greateでもダメージ
 }

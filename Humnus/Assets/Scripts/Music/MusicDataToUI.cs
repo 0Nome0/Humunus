@@ -33,7 +33,7 @@ public class MusicDataToUI : MonoBehaviour
     public void ToUI()
     {
         MusicDifficulty difficulty = MusicDifficultySelecter.musicDifficulty;
-        MusicData data = musicDatas.GetMusicData(-grid.CurrentGrid);
+        MusicData data = musicDatas.GetMusicData(grid.CurrentGrid);
 
         UIs.name.text = data.musicName;
         UIs.autor.text = data.authors;
