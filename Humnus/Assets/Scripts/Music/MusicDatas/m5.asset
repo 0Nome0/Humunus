@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619f036200f35ab46b2eeb506a600208, type: 3}
   m_Name: m5
   m_EditorClassIdentifier: 
-  id: 8
+  id: 4
   icon: {fileID: 21300000, guid: 5803586cfe0f45642bcdf722f3af7859, type: 3}
   audioName: 
   audiClip: {fileID: 8300000, guid: 26e63d644e9ecc244b56a76ba0e79883, type: 3}
-  musicName: B of dancing
-  authors: "\u4F5C\u8A5E:\u79CB\u5143 \u5EB7 \u4F5C\u66F2:\u30CA\u30B9\u30AB"
+  musicName: Zinnia
+  authors: "\u79CB\u5143 \u5EB7"
+  difficult: 5
   info: 
   notesData: 
   feverStart: 0

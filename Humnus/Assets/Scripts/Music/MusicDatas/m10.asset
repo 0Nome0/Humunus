@@ -16,8 +16,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 961142cb421ce2b44944752ba6b673d6, type: 3}
   audioName: 
   audiClip: {fileID: 8300000, guid: 906f48a1169aefa47b7cdcb59599f1d4, type: 3}
-  musicName: "C\u304C\u6765\u308B\u307E\u3067\u306B"
-  authors: "\u4F5C\u66F2\u4F5C\u66F2:Humnus"
+  musicName: 1music0
+  authors: Humnus
+  difficult: 10
   info: 
   notesData: 
   feverStart: 0

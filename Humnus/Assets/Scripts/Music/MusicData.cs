@@ -13,6 +13,7 @@ public class MusicData : ScriptableObject, IManagedByID
     public AudioClip audiClip;
     public string musicName;
     public string authors;
+    public int difficult;
     public string info;
     public string notesData;
     public float feverStart;

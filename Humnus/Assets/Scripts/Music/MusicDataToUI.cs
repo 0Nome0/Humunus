@@ -12,6 +12,7 @@ public class MusicDataToUI : MonoBehaviour
     [SerializeReference] private MusicUIs UIs = new MusicUIs();
     [SerializeField] private GridPosition grid = null;
     [SerializeField] private SelectMusicLineUper musicDatas = null;
+    public AudioSource source = null;
 
 
     private void Start()
@@ -25,21 +26,24 @@ public class MusicDataToUI : MonoBehaviour
         ToUI();
     }
 
-    private void Update()
-    {
-
-    }
-
     public void ToUI()
     {
-        MusicDifficulty difficulty = MusicDifficultySelecter.musicDifficulty;
         MusicData data = musicDatas.GetMusicData(grid.CurrentGrid);
 
         UIs.name.text = data.musicName;
-        UIs.autor.text = data.authors;
-        UIs.rank.text = data.clearData[difficulty.Int()].clearRank.ToString();
-        UIs.score.text = data.clearData[difficulty.Int()].maxScore.ToString();
-        UIs.combo.text = data.clearData[difficulty.Int()].maxCombo.ToString();
+        UIs.autor.text = "作曲：" + data.authors;
+
+        string diff ="";
+        for(int i = 0; i < data.difficult; i++)
+        {
+            diff += "♪";
+        }
+        UIs.difficalt.text = $"難易度:{diff}";
+        UIs.icon.sprite = data.icon;
+
+        source.clip = data.audiClip;
+        source.Play();
+        source.time = 10;
     }
 
 }
@@ -48,8 +52,6 @@ public class MusicUIs
 {
     public Text name;
     public Text autor;
-
-    public Text rank;
-    public Text score;
-    public Text combo;
+    public Text difficalt;
+    public Image icon;
 }

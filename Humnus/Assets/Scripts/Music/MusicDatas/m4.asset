@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619f036200f35ab46b2eeb506a600208, type: 3}
   m_Name: m4
   m_EditorClassIdentifier: 
-  id: 7
+  id: 3
   icon: {fileID: 21300000, guid: 72a02b02c22f883428ff8b2866ce38ad, type: 3}
   audioName: 
   audiClip: {fileID: 8300000, guid: dc0fd33d5f7f2a64bb60a25e930d3eae, type: 3}
-  musicName: B of dancing
-  authors: "\u4F5C\u8A5E:\u79CB\u5143 \u5EB7 \u4F5C\u66F2:\u30CA\u30B9\u30AB"
+  musicName: mus4ic
+  authors: TAKAHIRO
+  difficult: 4
   info: 
   notesData: 
   feverStart: 0

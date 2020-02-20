@@ -69,6 +69,7 @@ namespace NerScript.Editor
             {
                 string name = EditorGUILayout.TextField("楽曲名", data.musicName);
                 string author = EditorGUILayout.TextField("作者", data.authors);
+                int diff = EditorGUILayout.IntField("難易度", data.difficult);
                 EditorGUILayout.LabelField("楽曲説明");
                 string info = EditorGUILayout.TextArea(data.info);
                 GUILayout.Space(15);
@@ -79,6 +80,7 @@ namespace NerScript.Editor
                     UndoRecord("stringChange");
                     data.musicName = name;
                     data.authors = author;
+                    data.difficult = diff;
                     data.info = info;
                     data.openConditions = openConditions;
                 }
