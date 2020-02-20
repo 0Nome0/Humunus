@@ -34,7 +34,6 @@ public class NotesGenerator : MonoBehaviour
     [SerializeField, ReadOnlyOnInspector] private float time;
 
     [SerializeField] private NotesTapArea tapArea;
-    [SerializeField] private BGMPlayer bgm;
 
     [SerializeField] private PlayScoreManager scoreManager;
 
@@ -52,7 +51,6 @@ public class NotesGenerator : MonoBehaviour
         NotesPoolSetting();
         TapObserve();
         UpdateObserve();
-        bgm.Play();
     }
 
     private void Initialize()
@@ -139,7 +137,7 @@ public class NotesGenerator : MonoBehaviour
             {
                 TabJudgment(notes, null);
             }
-            else if(notes.notes.type == NotesType.sRight || notes.notes.type == NotesType.sLeft)
+            else if(notes.notes.type == NotesType.Slide)
             {
                 Debug.Log("SlideTap");
                 float tapTime = time;
@@ -149,7 +147,8 @@ public class NotesGenerator : MonoBehaviour
                 .Take(6)
                 .Do(_ => Debug.Log((Mouse.current == null) + ":/:" + Mouse.current + ":/:" +
                     Mouse.current?.delta?.ReadValue()))
-                .Where(_ => 0 < Mathf.Abs(Mouse.current.delta.ReadValue().x))
+                .Where(_ => 0 < Mathf.Abs(Mouse.current.delta.ReadValue().x) ||
+                            0 < Mathf.Abs(Touchscreen.current.delta.ReadValue().x))
                 .Take(1)
                 .Subscribe(_ => { TabJudgment(notes, tapTime); });
             }
@@ -176,6 +175,7 @@ public class NotesGenerator : MonoBehaviour
             NotesObject notes = flowNotesList.First(n => n.notes.type == NotesType.End);
 
             //流れてる
+            notesList.Remove(notesList.First(n => n.type == NotesType.End));
             if(notes != null)
             {
                 Debug.Log("Long" + notes.notes.type);
@@ -185,7 +185,6 @@ public class NotesGenerator : MonoBehaviour
             //流れてない
             else
             {
-                notesList.Remove(notesList.First(n=>n.type == NotesType.End));
             }
 
             var image = longImages[0];
@@ -208,7 +207,7 @@ public class NotesGenerator : MonoBehaviour
 
         Debug.Log($"{Mathf.Abs(notes.notes.time - nowTime)}:{notes.notes.time}/{nowTime}");
 
-        if(Mathf.Abs(notes.notes.time - nowTime) < 0.05f)
+        if(Mathf.Abs(notes.notes.time - nowTime) < 0.03f)
         {
             Debug.Log("perfect!");
             notesPool.Used(notes);
@@ -232,25 +231,13 @@ public class NotesGenerator : MonoBehaviour
             // image.DestroyGameObject();
             return true;
         }
-        if(Mathf.Abs(notes.notes.time - nowTime) < 0.075f)
-        {
-            Debug.Log("good!");
-            notesPool.Used(notes);
-            flowNotesList.Remove(notes);
-            Instantiate(effect, notes.transform.position, Quaternion.identity, transform);
-            scoreManager.Score(NoteJudge.Good, 1 * (isFever ? 2 : 1));
-            // var image = longImages[0];
-            // longImages.RemoveFirst();
-            // image.DestroyGameObject();
-            return true;
-        }
         if(Mathf.Abs(notes.notes.time - nowTime) < 0.1f)
         {
-            Debug.Log("bad!");
+            Debug.Log("miss!");
             notesPool.Used(notes);
             flowNotesList.Remove(notes);
             Instantiate(effect, notes.transform.position, Quaternion.identity, transform);
-            scoreManager.Score(NoteJudge.Bad, 0);
+            scoreManager.Score(NoteJudge.Miss, 0);
             // var image = longImages[0];
             // longImages.RemoveFirst();
             // image.DestroyGameObject();
@@ -263,6 +250,8 @@ public class NotesGenerator : MonoBehaviour
         return false;
     }
 
+    public float GetFeverX => (isFever ? (PlayCharacter.HasPlayer(PlayerID.Irishio) ? 1.5f : 1.25f) : 1);
+
     private bool TabJudgment(NotesObject notes, float? _nowTime)
     {
         float nowTime;
@@ -270,26 +259,14 @@ public class NotesGenerator : MonoBehaviour
 
         //Debug.Log($"{Mathf.Abs(notes.notes.time - nowTime)}:{notes.notes.time}/{nowTime}");
 
-        if(PlayCharacter.HasPlayer(PlayerID.Type7))
+
+        if(Mathf.Abs(notes.notes.time - nowTime) < 0.03f)
         {
             Debug.Log("perfect!");
             notesPool.Used(notes);
             flowNotesList.Remove(notes);
             Instantiate(effect, notes.transform.position, Quaternion.identity, transform);
-            scoreManager.Score(NoteJudge.Perfect, 4 * (isFever ? 2 : 1));
-            if(notes.notes.type == NotesType.Start)
-            {
-                longImages[0].tr1 = laneEnd;
-            }
-            return true;
-        }
-        if(Mathf.Abs(notes.notes.time - nowTime) < 0.05f)
-        {
-            Debug.Log("perfect!");
-            notesPool.Used(notes);
-            flowNotesList.Remove(notes);
-            Instantiate(effect, notes.transform.position, Quaternion.identity, transform);
-            scoreManager.Score(NoteJudge.Perfect, 4 * (isFever ? 2 : 1));
+            scoreManager.Score(NoteJudge.Perfect, notes.notes.score * GetFeverX);
             if(notes.notes.type == NotesType.Start)
             {
                 longImages[0].tr1 = laneEnd;
@@ -298,51 +275,79 @@ public class NotesGenerator : MonoBehaviour
         }
         if(Mathf.Abs(notes.notes.time - nowTime) < 0.06f)
         {
-            Debug.Log("great!");
-            notesPool.Used(notes);
-            flowNotesList.Remove(notes);
-            Instantiate(effect, notes.transform.position, Quaternion.identity, transform);
-            scoreManager.Score(NoteJudge.Great, 2 * (isFever ? 2 : 1));
-            if(notes.notes.type == NotesType.Start)
+            if(PlayCharacter.HasPlayer(PlayerID.Cello) &&
+                50 < PlayCharacter.Count(PlayerID.Cello).Value)
             {
-                longImages[0].tr1 = laneEnd;
-            }
-            return true;
-        }
-        if(Mathf.Abs(notes.notes.time - nowTime) < 0.075f)
-        {
-            if(PlayCharacter.HasPlayer(PlayerID.Type4) && 0 < PlayCharacter.Count(PlayerID.Type4).Value)
-            {
-                PlayCharacter.Count(PlayerID.Type4).Value--;
                 Debug.Log("perfect!");
                 notesPool.Used(notes);
                 flowNotesList.Remove(notes);
                 Instantiate(effect, notes.transform.position, Quaternion.identity, transform);
-                scoreManager.Score(NoteJudge.Perfect, 4 * (isFever ? 2 : 1));
+                scoreManager.Score(NoteJudge.Perfect, notes.notes.score * GetFeverX);
                 if(notes.notes.type == NotesType.Start)
                 {
                     longImages[0].tr1 = laneEnd;
                 }
                 return true;
             }
-            Debug.Log("good!");
+            if(PlayCharacter.HasPlayer(PlayerID.Nicola) && 0 < PlayCharacter.Count(PlayerID.Nicola).Value)
+            {
+                PlayCharacter.Count(PlayerID.Nicola).Value--;
+                Debug.Log("perfect!");
+                notesPool.Used(notes);
+                flowNotesList.Remove(notes);
+                Instantiate(effect, notes.transform.position, Quaternion.identity, transform);
+                scoreManager.Score(NoteJudge.Perfect, notes.notes.score * GetFeverX);
+                if(notes.notes.type == NotesType.Start)
+                {
+                    longImages[0].tr1 = laneEnd;
+                }
+                return true;
+            }
+
+            Debug.Log("great!");
             notesPool.Used(notes);
             flowNotesList.Remove(notes);
             Instantiate(effect, notes.transform.position, Quaternion.identity, transform);
-            scoreManager.Score(NoteJudge.Good, 1 * (isFever ? 2 : 1));
+            scoreManager.Score(NoteJudge.Great, notes.notes.score * GetFeverX);
             if(notes.notes.type == NotesType.Start)
             {
                 longImages[0].tr1 = laneEnd;
             }
+
+            int damage = notes.notes.Damage / 2;
+            if(PlayCharacter.HasPlayer(PlayerID.Casartilio))
+            {
+                damage -= 20;
+                damage.ClampMin(0);
+            }
+            if(PlayCharacter.HasPlayer(PlayerID.Cello) ||
+                PlayCharacter.HasPlayer(PlayerID.Clemona)
+            )
+            {
+                damage *= 2;
+            }
+            if(isMuteki)
+            {
+                damage = 0;
+            }
+            if(PlayCharacter.HasPlayer(PlayerID.Barometer) && !isMuteki)
+            {
+                isMuteki = true;
+                Observable
+                .Timer(TimeSpan.FromSeconds(2))
+                .TakeUntilDestroy(gameObject)
+                .Subscribe(_ => { isMuteki = false; });
+            }
+            player.hitPoint.Damage(damage);
             return true;
         }
         if(Mathf.Abs(notes.notes.time - nowTime) < 0.1f)
         {
-            Debug.Log("bad!");
+            Debug.Log("miss!");
             notesPool.Used(notes);
             flowNotesList.Remove(notes);
             Instantiate(effect, notes.transform.position, Quaternion.identity, transform);
-            scoreManager.Score(NoteJudge.Bad, 0);
+            scoreManager.Score(NoteJudge.Miss, 0);
             if(notes.notes.type == NotesType.Start)
             {
                 longImages[0].tr1 = laneEnd;
@@ -386,12 +391,7 @@ public class NotesGenerator : MonoBehaviour
                 if(isHolding)
                     longImages.Last().tr2 = nObj.transform;
                 break;
-            case NotesType.Double:
-                break;
-            case NotesType.sLeft:
-                nObj.image.sprite = slideNotes;
-                break;
-            case NotesType.sRight:
+            case NotesType.Slide:
                 nObj.image.sprite = slideNotes;
                 break;
             case NotesType.Dont:
@@ -402,8 +402,10 @@ public class NotesGenerator : MonoBehaviour
 
         flowNotesList.Add(nObj);
         notesList.RemoveFirst();
-        notesList.Add(new Notes(notesList.Last().time + 1.0f, NotesType.sLeft, 1, false));
+        notesList.Add(new Notes(notesList.Last().time + 1.0f, 200, NotesType.Slide, false));
     }
+
+    public bool isMuteki = false;
 
     private void NotesAnime(NotesObject notesObject)
     {
@@ -420,27 +422,27 @@ public class NotesGenerator : MonoBehaviour
             EasingTypes.QuadIn2)
         .PlayActionAnim(() =>
         {
-            if(PlayCharacter.HasPlayer(PlayerID.Type3) && isFever)
+            if(PlayCharacter.HasPlayer(PlayerID.Theobald) && isFever)
             {
                 Debug.Log("perfect!");
                 notesPool.Used(notesObject);
                 flowNotesList.Remove(notesObject);
                 Instantiate(effect, notes.transform.position, Quaternion.identity, transform);
-                scoreManager.Score(NoteJudge.Perfect, 4 * (isFever ? 2 : 1));
+                scoreManager.Score(NoteJudge.Perfect, notesObject.notes.score * GetFeverX);
                 if(notesObject.notes.type == NotesType.Start)
                 {
                     longImages[0].tr1 = laneEnd;
                 }
                 return;
             }
-            if(PlayCharacter.HasPlayer(PlayerID.Type6) && 0 <  PlayCharacter.Count(PlayerID.Type6).Value)
+            if(PlayCharacter.HasPlayer(PlayerID.Filo) && 0 < PlayCharacter.Count(PlayerID.Filo).Value)
             {
                 Debug.Log("perfect!");
-                PlayCharacter.Count(PlayerID.Type6).Value--;
+                PlayCharacter.Count(PlayerID.Filo).Value--;
                 notesPool.Used(notesObject);
                 flowNotesList.Remove(notesObject);
                 Instantiate(effect, notes.transform.position, Quaternion.identity, transform);
-                scoreManager.Score(NoteJudge.Perfect, 4 * (isFever ? 2 : 1));
+                scoreManager.Score(NoteJudge.Perfect, notesObject.notes.score * GetFeverX);
                 if(notesObject.notes.type == NotesType.Start)
                 {
                     longImages[0].tr1 = laneEnd;
@@ -479,18 +481,33 @@ public class NotesGenerator : MonoBehaviour
                     }
                 }
             }
-            int damage = notesObject.notes.damage;
-            if(PlayCharacter.HasPlayer(PlayerID.Type7)||
-                PlayCharacter.HasPlayer(PlayerID.Type8)
-                )
+            int damage = notesObject.notes.Damage;
+            if(PlayCharacter.HasPlayer(PlayerID.Casartilio))
+            {
+                damage -= 20;
+                damage.ClampMin(0);
+            }
+            if(PlayCharacter.HasPlayer(PlayerID.Cello) ||
+                PlayCharacter.HasPlayer(PlayerID.Clemona)
+            )
             {
                 damage *= 2;
             }
-            if(PlayCharacter.HasPlayer(PlayerID.Type10))
+            if(isMuteki)
             {
-                damage--;
+                damage = 0;
             }
+            if(PlayCharacter.HasPlayer(PlayerID.Barometer) && !isMuteki)
+            {
+                isMuteki = true;
+                Observable
+                .Timer(TimeSpan.FromSeconds(2))
+                .TakeUntilDestroy(gameObject)
+                .Subscribe(_ => { isMuteki = false; });
+            }
+
             player.hitPoint.Damage(damage);
+
         })
         .AnimationStart(() => notesPool.Used(notesObject));
     }

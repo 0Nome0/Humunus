@@ -15,17 +15,12 @@ MonoBehaviour:
   enable: 1
   objects:
   - {fileID: 11400000, guid: 10c168f07d362b54aa5dd5cc7400b013, type: 2}
-  - {fileID: 11400000, guid: fdc9759b2bc146f47b5de40d28974fa5, type: 2}
   - {fileID: 11400000, guid: aab8d44e58a067a40a577f7b6c114be2, type: 2}
   - {fileID: 11400000, guid: f2da436a52afa69429e5b221cbb54dc9, type: 2}
   - {fileID: 11400000, guid: 79a9de4b11ccd614186e42309a3bdfcf, type: 2}
   - {fileID: 11400000, guid: 2ca3567963781cf42afaa4f301f984c2, type: 2}
-  - {fileID: 11400000, guid: 944b770e636678e4b862a1be40ea3678, type: 2}
   - {fileID: 11400000, guid: 80974e284321f0f4183a74fedf4e9674, type: 2}
   - {fileID: 11400000, guid: 212c81d160c673944ae78b7666d669d5, type: 2}
-  - {fileID: 11400000, guid: 66f65270f52939c47aa4213e7c751546, type: 2}
   - {fileID: 11400000, guid: 647717dce1ea614489f1ec3ff8cdc992, type: 2}
-  - {fileID: 11400000, guid: 1e634711a8a1a5a479f74401cd8f200e, type: 2}
-  - {fileID: 11400000, guid: 285c4449a9f12124f8355047f7ff865f, type: 2}
   - {fileID: 11400000, guid: 5218cddef89824d488c977a9377db911, type: 2}
   - {fileID: 11400000, guid: 691869819d795804d9c70fdb74cb7f9f, type: 2}

@@ -53,7 +53,7 @@ namespace NerScript.Games
         }
         private static void SetScreenDetail()
         {
-            Screen.orientation = ScreenOrientation.Landscape;
+            //Screen.orientation = ScreenOrientation.Landscape;
         }
         private static void FadeManagerInit(GameManagerSetting asset)
         {

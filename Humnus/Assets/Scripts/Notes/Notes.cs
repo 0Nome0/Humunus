@@ -8,15 +8,38 @@ using UnityEngine;
 public struct Notes : IEquatable<Notes>
 {
     public float time;
+    public float score;
     public NotesType type;
-    public int damage;
+    public int Damage
+    {
+        get
+        {
+            switch(type)
+            {
+
+                case NotesType.Tap:
+                    break;
+                case NotesType.Start:
+                    break;
+                case NotesType.End:
+                    break;
+                case NotesType.Slide:
+                    break;
+                case NotesType.Dont:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            return 10;
+        }
+    }
     public bool isHiSpeed;
 
-    public Notes(float _time, NotesType _type, int _damage, bool _isHiSpeed)
+    public Notes(float _time, float _score, NotesType _type, bool _isHiSpeed)
     {
         time = _time;
+        score = _score;
         type = _type;
-        damage = _damage;
         isHiSpeed = _isHiSpeed;
     }
 
@@ -31,9 +54,6 @@ public enum NotesType
     Tap,
     Start,
     End,
-    Double,
-    sLeft,
-    sRight,
-    sUp,
+    Slide,
     Dont,
 }

@@ -17,6 +17,8 @@ public class SelectMusicLineUper : MonoBehaviour
     [SerializeField] private float lengthOffset = 25;
     [SerializeField] private float iconSpace = 55;
 
+
+
     private void OnValidate()
     {
         if (layouter == null)
@@ -28,12 +30,13 @@ public class SelectMusicLineUper : MonoBehaviour
 
         if (iconPrefab == null) return;
         layouter.original = iconPrefab;
+        layouter.SetSpace(new Vector2(0, iconSpace));
 
         Vector2Layout layout = layouter.layout;
-        layout.space = new Vector2(iconSpace, 0);
         layout.direction = Directional.RightDown;
         layout.elementLayoutCount = 1;
-        layout.horizontalLayout = false;
+        layouter.layout.horizontalLayout = true;
+        layouter.Validate();
     }
 
     public void Start()
@@ -44,16 +47,21 @@ public class SelectMusicLineUper : MonoBehaviour
     private void LineUp()
     {
         List<MusicData> datas = database.GetListT<MusicData>();
+
         OnValidate();
         layouter.Layout(
             datas.Count,
             (obj, i) =>
             {
-                obj.GetComponent<Image>().sprite = datas[i].icon;
+                MusicSelectIcon icon = obj.GetComponent<MusicSelectIcon>();
+                //icon.sprite = datas[i].icon;
+                icon.text.text = datas[i].musicName;
             });
 
-        transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2((database.Count) * iconSpace + lengthOffset, 0);
+        transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(0, (database.Count) * iconSpace + lengthOffset);
     }
 
     public MusicData GetMusicData(int index) => (MusicData)database.objects[index];
+
+    private void OnDrawGizmosSelected() { OnValidate(); }
 }

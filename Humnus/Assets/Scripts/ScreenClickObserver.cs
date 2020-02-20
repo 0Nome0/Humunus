@@ -15,9 +15,9 @@ public class ScreenClickObserver : MonoBehaviour
     private void Start()
     {
         GlobalScreenInput
-           .Instance.OnScreen
-           .TakeUntilDestroy(gameObject)
-           .Subscribe(_ => onClick.Invoke());
+        .Instance.OnScreen
+        .TakeUntilDestroy(gameObject)
+        .Subscribe(_ => onClick.Invoke());
 
 
 

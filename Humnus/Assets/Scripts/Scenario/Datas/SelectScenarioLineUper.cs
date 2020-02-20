@@ -53,7 +53,7 @@ public class SelectScenarioLineUper : MonoBehaviour
             (obj, i) =>
             {
                 ScenarioSelectIcon icon = obj.GetComponent<ScenarioSelectIcon>();
-                icon.image.sprite = datas[i].icon;
+                //icon.image.sprite = datas[i].icon;
                 icon.text.text = datas[i].scenarioTitle;
             });
 

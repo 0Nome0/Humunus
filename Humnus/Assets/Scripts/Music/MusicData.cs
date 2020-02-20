@@ -10,6 +10,7 @@ public class MusicData : ScriptableObject, IManagedByID
     public int ID { get => id; set => id = value; }
     public Sprite icon;
     public string audioName;
+    public AudioClip audiClip;
     public string musicName;
     public string authors;
     public string info;

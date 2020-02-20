@@ -50,11 +50,18 @@ namespace NerScript.Editor
         }
         private void AudioNameField()
         {
-            EditorGUIFields.AudioAddressField(
-                "音楽データ",
-                data.audioName,
-                Resource.AudioGroup.BGM,
-                (address) => { this.data.audioName = address; });
+            // EditorGUIFields.AudioAddressField(
+            //     "音楽データ",
+            //     data.audioName,
+            //     Resource.AudioGroup.BGM,
+            //     (address) => { this.data.audioName = address; });
+            using (var change = new EditorGUI.ChangeCheckScope())
+            {
+                GUILayout.BeginHorizontal();
+                AudioClip ac = (AudioClip)EditorGUILayout.ObjectField("AudioClip", data.audiClip, typeof(AudioClip), false);
+                if (change.changed) { UndoRecord("AudioClipChange"); data.audiClip = ac; }
+                GUILayout.EndHorizontal();
+            }
         }
         private void StringsField()
         {

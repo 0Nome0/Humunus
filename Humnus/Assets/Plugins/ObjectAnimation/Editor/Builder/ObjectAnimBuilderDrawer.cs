@@ -23,7 +23,7 @@ namespace NerScript.Anime.Builder.Editor
 
         public ObjectAnimBuilderDrawer()
         {
-            indexSelector = new ListIndexSelector(null);
+            indexSelector = new ListIndexSelector(new List<int>());
 
         }
 

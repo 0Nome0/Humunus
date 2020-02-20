@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619f036200f35ab46b2eeb506a600208, type: 3}
+  m_Name: m2
+  m_EditorClassIdentifier: 
+  id: 5
+  icon: {fileID: 21300000, guid: edbfb516132ff7943a5a43e279835593, type: 3}
+  audioName: 
+  audiClip: {fileID: 8300000, guid: 88b910509f071934eb3904d26cfa4165, type: 3}
+  musicName: AM4648
+  authors: "\u4F5C\u66F2:\u697D\u66F2\u4F5C\u592A\u90CE"
+  info: 
+  notesData: 
+  feverStart: 0
+  feverEnd: 0
+  openConditions: "\u521D\u671F\u958B\u653E"
+  openFlag: 010000
+  clearData:
+  - clearRank: 0
+    maxScore: 0
+    maxCombo: 0
+    clearCount: 0
+  - clearRank: 0
+    maxScore: 0
+    maxCombo: 0
+    clearCount: 0
+  - clearRank: 0
+    maxScore: 0
+    maxCombo: 0
+    clearCount: 0
