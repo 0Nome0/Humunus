@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619f036200f35ab46b2eeb506a600208, type: 3}
   m_Name: m3
   m_EditorClassIdentifier: 
-  id: 0
+  id: 2
   icon: {fileID: 21300000, guid: 9154304252b2f614c927dbc913598978, type: 3}
   audioName: 
   audiClip: {fileID: 8300000, guid: 32435a7d3ee4e06478d6cf3a784e9922, type: 3}
-  musicName: AM4648
-  authors: "\u4F5C\u66F2:\u697D\u66F2\u4F5C\u592A\u90CE"
+  musicName: mu3sic
+  authors: "\u697D\u66F2\u4F5C\u592A\u90CE3"
+  difficult: 3
   info: 
   notesData: 
   feverStart: 0
   feverEnd: 0
   openConditions: "\u521D\u671F\u958B\u653E"
-  openFlag: 010000
+  openFlag: 010001
   clearData:
   - clearRank: 0
     maxScore: 0

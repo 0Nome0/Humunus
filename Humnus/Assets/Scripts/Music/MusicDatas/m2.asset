@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619f036200f35ab46b2eeb506a600208, type: 3}
   m_Name: m2
   m_EditorClassIdentifier: 
-  id: 5
+  id: 1
   icon: {fileID: 21300000, guid: edbfb516132ff7943a5a43e279835593, type: 3}
   audioName: 
   audiClip: {fileID: 8300000, guid: 88b910509f071934eb3904d26cfa4165, type: 3}
-  musicName: AM4648
-  authors: "\u4F5C\u66F2:\u697D\u66F2\u4F5C\u592A\u90CE"
+  musicName: m2usic
+  authors: "\u697D\u66F2\u4F5C\u592A\u90CE2"
+  difficult: 2
   info: 
   notesData: 
   feverStart: 0

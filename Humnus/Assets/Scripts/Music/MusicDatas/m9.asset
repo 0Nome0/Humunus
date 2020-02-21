@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619f036200f35ab46b2eeb506a600208, type: 3}
   m_Name: m9
   m_EditorClassIdentifier: 
-  id: 6
+  id: 8
   icon: {fileID: 21300000, guid: 9e1a328bfc31d7545b2d8dafd3640a2a, type: 3}
   audioName: 
   audiClip: {fileID: 8300000, guid: c8ef6698ab0781e4383bc5a3ded75d7b, type: 3}
-  musicName: "C\u304C\u6765\u308B\u307E\u3067\u306B"
-  authors: "\u4F5C\u66F2\u4F5C\u66F2:Humnus"
+  musicName: Wein
+  authors: Humnus
+  difficult: 9
   info: 
   notesData: 
   feverStart: 0
