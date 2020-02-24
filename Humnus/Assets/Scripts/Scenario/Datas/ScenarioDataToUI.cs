@@ -25,28 +25,17 @@ public class ScenarioDataToUI : MonoBehaviour
         ToUI();
     }
 
-    private void Update()
-    {
-
-    }
-
     public void ToUI()
     {
         ScenarioData data = scenarioDatas.GetScenarioData(grid.CurrentGrid);
-
-        UIs.name.text = data.scenarioTitle;
-        UIs.autor.text = data.episode.ToString();
+        UIs.icon.sprite = data.icon;
     }
-
 }
 
 [Serializable]
 public class ScenarioUIs
 {
-    public Text name;
-    public Text autor;
-
-    //public Text rank;
+    public Image icon;
     //public Text score;
     //public Text combo;
 }

@@ -8,7 +8,20 @@ using UnityEngine;
 public struct Notes : IEquatable<Notes>
 {
     public float time;
-    public float score;
+    public float Score
+    {
+        get
+        {
+            switch(type)
+            {
+                case NotesType.Tap:   return 100;
+                case NotesType.Start: return 50;
+                case NotesType.End:   return 50;
+                case NotesType.Slide: return 100;
+            }
+            return 0;
+        }
+    }
     public NotesType type;
     public int Damage
     {
@@ -17,30 +30,19 @@ public struct Notes : IEquatable<Notes>
             switch(type)
             {
 
-                case NotesType.Tap:
-                    break;
-                case NotesType.Start:
-                    break;
-                case NotesType.End:
-                    break;
-                case NotesType.Slide:
-                    break;
-                case NotesType.Dont:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                case NotesType.Tap: return 20;
+                case NotesType.Start: return 10;
+                case NotesType.End: return 10;
+                case NotesType.Slide: return 20;
             }
-            return 10;
+            return 0;
         }
     }
-    public bool isHiSpeed;
 
-    public Notes(float _time, float _score, NotesType _type, bool _isHiSpeed)
+    public Notes(float _time, NotesType _type)
     {
         time = _time;
-        score = _score;
         type = _type;
-        isHiSpeed = _isHiSpeed;
     }
 
     public bool Equals(Notes other) => time == other.time && type == other.type;

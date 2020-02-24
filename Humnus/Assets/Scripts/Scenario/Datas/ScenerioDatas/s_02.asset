@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932b46ad23ef38c4e86a54bc347c650f, type: 3}
   m_Name: s_02
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 88a606efb4730934fa7d827295ba4948, type: 3}
   episode: 1
   scenarioTitle: "\u76EE\u899A\u307E\u3057\u3092\u6B62\u3081\u308B"
   openFlag: 0

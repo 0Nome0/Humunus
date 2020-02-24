@@ -150,10 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c81a7be8eaf24745a9c9858e01d7da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Llane: []
-  Rlane: []
-  bg: BG1
-  time: 0
 --- !u!4 &165658360
 Transform:
   m_ObjectHideFlags: 0

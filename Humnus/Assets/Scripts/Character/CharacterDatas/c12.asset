@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd1ed8d4816d424e8acca5641e16873, type: 3}
   m_Name: c12
   m_EditorClassIdentifier: 
+  isOpened: 0
   characterName: "\u30D0\u30ED\u30E1\u30C3\u30BF"
   icon: {fileID: 21300000, guid: 966bd929a7b77ef48a8f7acc15e5aaaf, type: 3}
-  info: 
-  hp: 1
+  icon2: {fileID: -8807793445536865487, guid: 5e32054055ca8534e80ded1ba957e532, type: 3}
+  iconAu: {fileID: 21300000, guid: e75f8944d9dd9fa4ab3c41ef3d7876de, type: 3}
+  info: "\u3068\u306B\u304B\u304F\u59B9\u60F3\u3044\u306E\u304A\u59C9\u3055\u3093\u3002\u904B\u52D5\u304C\u5927\u597D\u304D\u3067\u3001\u3088\u304F\u30EA\u30B3\u30DD\u30C7\u30A3\u30A2\u3092\u4ED8\u304D\u5408\u308F\u305B\u3066\u3044\u308B\u3002"
+  hp: 100
   skillName: "\u59B9\u306B\u624B\u3092\u51FA\u3059\u3084\u3064\u306F\u3001\u79C1\u304C\u8A31\u3055\u306A\u3044\uFF01"
   skillInfo: 
+  SVoice: {fileID: 8300000, guid: 4903399fff1780f449ecacc024b585d6, type: 3}
+  voice1: {fileID: 8300000, guid: 4de7d1ee3cd83d742baac7499810afba, type: 3}
+  voice2: {fileID: 8300000, guid: 5098145f9074dfa48904eceeb9050438, type: 3}
+  voice3: {fileID: 0}

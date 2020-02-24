@@ -24,8 +24,6 @@ public enum NoteJudge
 public class PlayScoreManager : MonoBehaviour
 {
     public Player player = null;
-    [SerializeField, ReadOnlyOnInspector] private int score;
-    public int combo;
 
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private TextMeshProUGUI scoreText;
@@ -37,10 +35,15 @@ public class PlayScoreManager : MonoBehaviour
 
 
 
+    public static int score = 1234567;
+    public static int combo = 987;
+    public static int perfectCount = 123;
+    public static int greatCount = 456;
+    public static int missCount = 789;
 
     private void Start()
     {
-
+        score = combo = perfectCount = greatCount = missCount = 0;
     }
 
 
@@ -91,18 +94,20 @@ public class PlayScoreManager : MonoBehaviour
         text.text = judge.ToString();
         switch(judge)
         {
-
             case NoteJudge.Perfect:
                 Combo(true);
+                perfectCount++;
                 break;
             case NoteJudge.Great:
                 Combo(true);
                 allPerfect = false;
+                greatCount++;
                 break;
             case NoteJudge.Miss:
                 allPerfect = false;
                 if(PlayCharacter.HasPlayer(PlayerID.Lucius) && combo <= 100) Combo(true);
                 else Combo(false);
+                missCount++;
                 break;
         }
 

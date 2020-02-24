@@ -22,6 +22,9 @@ public class SkillEffectController : MonoBehaviour
     public Player player = null;
     public ScriptableObjectDatabase charaDatabase = null;
 
+    public Image LIcon = null;
+    public Image RIcon = null;
+
     private void Start()
     {
 
@@ -38,8 +41,18 @@ public class SkillEffectController : MonoBehaviour
             return (num - min) / (max - min);
         }
 
-        Uchara.sprite = charaDatabase.GetObjectByID<CharacterData>(PlayCharacter.Left.Int()).icon;
-        Dchara.sprite = charaDatabase.GetObjectByID<CharacterData>(PlayCharacter.Right.Int()).icon;
+        var UData = charaDatabase.GetObjectByID<CharacterData>(PlayCharacter.Left.Int());
+        var DData = charaDatabase.GetObjectByID<CharacterData>(PlayCharacter.Right.Int());
+
+        Uchara.sprite = UData.icon;
+        Dchara.sprite = DData.icon;
+
+        Utext.text = UData.skillName;
+        Dtext.text = DData.skillName;
+
+        LIcon.sprite = UData.icon2;
+        RIcon.sprite = DData.icon2;
+
 
         gameObject
         .ObjectAnimation()

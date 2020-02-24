@@ -44,6 +44,9 @@ public class LongImage : MonoBehaviour
         rte.sizeDelta = rte.sizeDelta.SetedY(dist.magnitude);
         transform.SetLclRotZ(-dist.ToVec2().XY.VectorToEuler());
 
-
+        if(tr2.position.y <= tr1.position.y)
+        {
+            rte.sizeDelta = rte.sizeDelta.SetedY(0);
+        }
     }
 }

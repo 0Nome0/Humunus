@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd1ed8d4816d424e8acca5641e16873, type: 3}
   m_Name: c10
   m_EditorClassIdentifier: 
+  isOpened: 0
   characterName: "\u30AB\u30B5\u30EB\u30C6\u30A3\u30EA\u30AA"
   icon: {fileID: 21300000, guid: 5b724cbf1f64e5c47994f9840719ad8f, type: 3}
-  info: 
-  hp: 1
+  icon2: {fileID: -2927626194139155358, guid: 3e3f2945f7e801e489f8665cda9d8a46, type: 3}
+  iconAu: {fileID: 21300000, guid: 4b516dd470fde164199c7c85ecfb90f5, type: 3}
+  info: "\u4ED5\u4E8B\u4EBA\u3067\u3001\u59A5\u5354\u3092\u8A31\u3055\u306A\u3044\u3002\u81EA\u5206\u306E\u300C\u6B63\u7FA9\u300D\u306B\u5FE0\u5B9F\u3067\u3042\u308A\u3001\u5E38\u306B\u81EA\u5206\u3067\u8003\u3048\u3066\u884C\u52D5\u3057\u3066\u3044\r\n\u308B\u3002\u8870\u5F31\u3057\u3066\u3044\u305F\u30EA\u30E5\u30CE\u30B9\u3092\u62FE\u3044\u3001\u80B2\u3066\u4E0A\u3052\u308B\u3002"
+  hp: 150
   skillName: "\u529B\u7121\u304D\u8005\u305F\u3061\u3088\u3001\u7D76\u671B\u3092\u524D\u306B\u4E89\u3063\u3066\u898B\u305B\u3088\uFF01"
   skillInfo: 
+  SVoice: {fileID: 8300000, guid: bd959809656e66341a7d2e9c4b751fde, type: 3}
+  voice1: {fileID: 8300000, guid: c4c915b204c8ebf46be25edc1c28f41f, type: 3}
+  voice2: {fileID: 8300000, guid: 6d5225b6b78a5d247bb377609b5d0ec2, type: 3}
+  voice3: {fileID: 0}

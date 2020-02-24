@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
             {
                 text.gameObject.SetActive(false);
                 bgm.Play();
-                //LNotes.enabled = true;
+                LNotes.enabled = true;
                 RNotes.enabled = true;
             });
 
@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
         //hitPoint.
         if(PlayCharacter.HasPlayer(PlayerID.Tem))
         {
-            hitPoint.GrowMaxHP(50);
+            hitPoint.GrowMaxHP(50,true);
         }
     }
 

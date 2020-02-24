@@ -315,12 +315,12 @@ MonoBehaviour:
   image: {fileID: 8974822201215834870}
   text: {fileID: 2005496606049147753}
   anker: {x: 0, y: 0, z: 0}
-  outRange: 5
+  outRange: 1
   easing: 10
   max:
-    position: {x: -110, y: 0, z: 0}
+    position: {x: -20, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    scale: {x: 0.3, y: 0.3, z: 0.3}
+    scale: {x: 0.5, y: 0.5, z: 0.5}
   min:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
