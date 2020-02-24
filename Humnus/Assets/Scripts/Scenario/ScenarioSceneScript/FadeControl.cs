@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -37,7 +37,6 @@ public class FadeControl : MonoBehaviour
         if (fadeData == null)
             fadeData = new string[data.Length];
         fadeData = data;
-        FadeOut();
     }
 
     /// <summary>

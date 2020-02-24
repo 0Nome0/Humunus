@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -138,8 +138,7 @@ public class CharaDisplay : MonoBehaviour
            color => CharaImageColor = color,            //値の更新
            1.0f,                                        //最終的なAlphaの色
            0.1f)                                        //時間
-          .SetEase(Ease.Linear)                         //Easingの指定
-          .OnComplete(() => Debug.Log("更新終了"));     //終了後に呼ばれる
+          .SetEase(Ease.Linear);                        //Easingの指定
         spriteRenderer.sortingOrder = 1;
     }
 

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -20,18 +20,19 @@ public class CharaSpriteLoader : MonoBehaviour
     /// <summary>
     /// 画像データの読み込み
     /// </summary>
-    public void LoadSpriteData()
+    public IEnumerator LoadSpriteData()
     {
         //指定パス内にあるSpriteを読み込む
         var loadSpriteData = Resources.LoadAll<Sprite>("Image/Character/").ToList();
         spriteData = new List<CharaSpriteData>();
         spriteData.Add(new CharaSpriteData());
-        //Queueにまだデータがあるなら続行する
+        //List内にまだデータがあるなら続行する
         while (loadSpriteData.Count > 0)
         {
             AddData(loadSpriteData.Dequeue());
         }
-        Debug.Log("終了");
+        Debug.Log("画像データの読み込みが終了しました");
+        yield return null;
     }
 
     /// <summary>
@@ -49,12 +50,23 @@ public class CharaSpriteLoader : MonoBehaviour
             dataIndex++;
             spriteData.Add(new CharaSpriteData());
         }
-
         //キャラデータのキャラ名が設定されていないなら
         if (spriteData[dataIndex].charaName == "")
             spriteData[dataIndex].charaName = str_charaData[0];
+        string facialname = "";
+        if (str_charaData.Length > 2)
+        {
+            for (int i = 1; i < str_charaData.Length; i++)
+            {
+                facialname += str_charaData[i];
+                if (i < str_charaData.Length - 1)
+                    facialname += "_";
+            }
+        }
+        else
+            facialname = str_charaData[1];
         //キャラクタの画像データリストに登録
-        spriteData[dataIndex].SetData(str_charaData[1], sprite);
+        spriteData[dataIndex].SetData(facialname, sprite);
 
         beforeLoadCharaSpriteName = str_charaData[0];
     }
@@ -65,9 +77,9 @@ public class CharaSpriteLoader : MonoBehaviour
     /// <param name="charaName"></param>
     /// <param name="facialName"></param>
     /// <returns></returns>
-    public Sprite GiveCharacterSprite(string charaName,string facialName)
+    public Sprite GiveCharacterSprite(string charaName, string facialName)
     {
-        for(int i = 0; i < spriteData.Count; i++)
+        for (int i = 0; i < spriteData.Count; i++)
         {
             if (spriteData[i].charaName != charaName)
                 continue;
@@ -96,7 +108,8 @@ public class CharaSpriteData
     /// <param name="sprite"></param>
     public void SetData(string facialName, Sprite sprite)
     {
-        data.Add(facialName, sprite);
+        if (!data.ContainsKey(facialName))
+            data.Add(facialName, sprite);
     }
 
     /// <summary>
@@ -108,7 +121,7 @@ public class CharaSpriteData
     {
         if (!data.ContainsKey(facialName))
         {
-            Debug.LogError("そのキーは存在しません。NotKeyName = " + facialName);
+            Debug.LogError("そのキーは存在しません。NotKeyName = " + facialName + "\nCharaName = " + charaName);
             return null;
         }
 

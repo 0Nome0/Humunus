@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +18,7 @@ public class CharaDataDisplayManager : MonoBehaviour
 
     private string[] charaFacialData;  //表情のデータ
     private int currentFacialIndex => ScenarioDataInfo.Instance.scenarioTextIndex;
+    private string currentTalkCharaName = "";
     private string beforeTalkCharaName = ""; //前の会話が誰がしゃべっていたか
 
     #region キャラデータラップ
@@ -58,10 +59,13 @@ public class CharaDataDisplayManager : MonoBehaviour
 
     #region データの読み込み
 
-    public void SetDisplayData(string[]firstDisplayData,string[]secondDisplayData)
+    public void SetDisplayData(
+        string[] firstDisplayData, string[] secondDisplayData, string[] facialData, string[] charaNameData)
     {
         firstCharacter.SetDisplayData(firstDisplayData);
         secondCharacter.SetDisplayData(secondDisplayData);
+        SetFacialData(facialData);
+        SetCharaNameData(charaNameData);
     }
 
     /// <summary>
@@ -69,13 +73,9 @@ public class CharaDataDisplayManager : MonoBehaviour
     /// </summary>
     /// <param name="facialData"></param>
     /// <param name="charaNameData"></param>
-    public void Load(string[] facialData, string[] charaNameData)
+    public IEnumerator Load()
     {
-        spriteLoader.LoadSpriteData();
-        SetFacialData(facialData);
-        SetCharaNameData(charaNameData);
-
-        TextUpdate();
+        yield return StartCoroutine(spriteLoader.LoadSpriteData());
     }
 
     /// <summary>
@@ -108,33 +108,37 @@ public class CharaDataDisplayManager : MonoBehaviour
 
         firstCharacter.DisplayCharacterInfo();
         secondCharacter.DisplayCharacterInfo();
-
-        //ナレーション(もしくは同一キャラがしゃべっている)
         if (CurrentCharaName == "")
-        {
-            //何もしない(同じキャラクターがしゃべっているため)
-        }
-        else if (CurrentCharaName == "None")
+            currentTalkCharaName = beforeTalkCharaName;
+        else
+            currentTalkCharaName = CurrentCharaName;
+
+        //ナレーション
+        if (currentTalkCharaName == "None")
         {
             if (firstCharacter.CharaImage != null)
                 firstCharacter.FadeInCharacter();
             if (secondCharacter.CharaImage != null)
                 secondCharacter.FadeInCharacter();
         }
-        else if (FirstCharaName == CurrentCharaName)
+        //一人目のキャラクタが連続してしゃべる場合
+        else if (FirstCharaName == currentTalkCharaName)
         {
             if (FacialName != "" &&
                 firstCharacter.facialName != FacialName)
                 firstCharacter.SpriteUpdate(GiveCharaSprite());
             firstCharacter.FadeOutCharacter();
+            UpdateCharaInfo(ref firstCharacter);
             secondCharacter.FadeInCharacter();
         }
-        else if (SecondCharaName == CurrentCharaName)
+        //二人目のキャラクタが連続してしゃべっている場合
+        else if (SecondCharaName == currentTalkCharaName)
         {
             if (FacialName != "" &&
                 secondCharacter.facialName != FacialName)
                 secondCharacter.SpriteUpdate(GiveCharaSprite());
             firstCharacter.FadeInCharacter();
+            UpdateCharaInfo(ref secondCharacter);
             secondCharacter.FadeOutCharacter();
         }
         else
@@ -177,7 +181,7 @@ public class CharaDataDisplayManager : MonoBehaviour
             }
         }
 
-        beforeTalkCharaName = CurrentCharaName;
+        beforeTalkCharaName = currentTalkCharaName;
     }
 
     /// <summary>
@@ -188,14 +192,12 @@ public class CharaDataDisplayManager : MonoBehaviour
     /// <returns></returns>
     private Sprite GiveCharaSprite()
     {
-        if (FacialName == "")
-            return null;
-        return spriteLoader.GiveCharacterSprite(CurrentCharaName, FacialName);
+        return spriteLoader.GiveCharacterSprite(currentTalkCharaName, FacialName);
     }
 
     private void UpdateCharaInfo(ref CharaDisplay chara)
     {
-        chara.charaName = CurrentCharaName;
+        chara.charaName = currentTalkCharaName;
         chara.facialName = FacialName;
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -8,7 +8,7 @@ public class BGMListenController : MonoBehaviour
     [SerializeField]
     private AudioSource audioSource = null;
     [SerializeField,Range(0,1)]
-    private float volume = 0.0f;
+    private float volume = 0.5f;
     [HideInInspector]
     public Dictionary<string, AudioClip> bgm;           //シナリオで使用するBGM
 

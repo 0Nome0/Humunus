@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +7,10 @@ using UnityEngine;
 /// </summary>
 public class SEToVoiceController : MonoBehaviour
 {
+    [SerializeField]
+    private AudioSource audioSource = null;
+    [SerializeField, Range(0, 1)]
+    private float volume = 1.0f;
     [HideInInspector]
     public Dictionary<string, AudioClip> se;           //シナリオで使用するSE
     [HideInInspector]
@@ -15,10 +19,33 @@ public class SEToVoiceController : MonoBehaviour
     private string[] seSoundArray;
     private string[] voiceSoundArray;
 
+    private int CurrentIndex => ScenarioDataInfo.Instance.scenarioTextIndex;
+
     public void Initialize()
     {
+        audioSource.volume = volume;
         se = new Dictionary<string, AudioClip>();
         voice = new Dictionary<string, AudioClip>();
+    }
+
+    public void UpdateSE()
+    {
+        if (seSoundArray.Length <= CurrentIndex)
+            return;
+        if (seSoundArray[CurrentIndex] == "")
+            return;
+        audioSource.PlayOneShot(se[seSoundArray[CurrentIndex]]);
+        Debug.Log("Seの再生");
+    }
+
+    public void UpdateVoice()
+    {
+        if (voiceSoundArray.Length <= CurrentIndex)
+            return;
+        if (voiceSoundArray[CurrentIndex] == "")
+            return;
+        audioSource.PlayOneShot(voice[voiceSoundArray[CurrentIndex]]);
+        Debug.Log("Voiceの再生");
     }
 
     /// <summary>
