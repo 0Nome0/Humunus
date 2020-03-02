@@ -12,7 +12,7 @@ public class NewScoreMaker : EditorWindow
     public List<Score> Rlane;
     public ScoreDate scoreDate = null;
     // Start is called before the first frame update
-
+    public Vector2 scroll = new Vector2();
     [UnityEditor.MenuItem("Tools/NewScoreMaker ")]
     // Update is called once per frame
     static void Init()
@@ -37,6 +37,7 @@ public class NewScoreMaker : EditorWindow
       
         
         if (GUILayout.Button("保存")) SaveJson();
+        if (GUILayout.Button("0削除")) CheckZero();
 
         EditorGUILayout.EndHorizontal();
     }
@@ -85,6 +86,26 @@ public class NewScoreMaker : EditorWindow
         {
             JsonConvert.SaveFile(path, scoreDate);
         }
+    }void CheckZero()
+    {
+      
+        for (int i = 0; i < Llane.Count; i++)
+        {
+            if (Llane[i].time == 0)
+            {
+                Llane.RemoveAt(i);
+            }
+       
+        }
+        for (int i = 0; i < Rlane.Count; i++)
+        {
+            if (Rlane[i].time == 0)
+            {
+                Rlane.RemoveAt(i);
+            }
+
+        }
+     
     }
     private void Awake()
     {
@@ -92,26 +113,30 @@ public class NewScoreMaker : EditorWindow
     }
     private void OnGUI()
     {
-        ScoreSlect();
-        // 自身のSerializedObjectを取得
-        var so = new SerializedObject(this);
+        using (var sc = new GUILayout.ScrollViewScope(scroll))
+        {
+            scroll = sc.scrollPosition;
+            ScoreSlect();
+            // 自身のSerializedObjectを取得
+            var so = new SerializedObject(this);
 
 
-        EditorGUILayout.BeginHorizontal(GUI.skin.box);
-        ReorderableList Lrl = new ReorderableList(Llane, typeof(Score), false, true, true, false);
-        ReorderableList Rrl = new ReorderableList(Rlane, typeof(Score), false, true, true, false);
+            EditorGUILayout.BeginHorizontal(GUI.skin.box);
+            ReorderableList Lrl = new ReorderableList(Llane, typeof(Score), false, true, true, false);
+            ReorderableList Rrl = new ReorderableList(Rlane, typeof(Score), false, true, true, false);
 
-        Lrl.drawElementCallback += DrawElementE;
-        Lrl.drawElementCallback += DrawElementF;
-        Lrl.elementHeightCallback += GetElementHeight;
-        Lrl.drawHeaderCallback += DrawLHeader;
-        Lrl.DoLayoutList();
-        Rrl.drawElementCallback += DrawRElementE;
-        Rrl.drawElementCallback += DrawRElementF;
-        Rrl.elementHeightCallback += GetElementHeight;
-        Rrl.drawHeaderCallback += DrawRHeader;
-        Rrl.DoLayoutList();
-        EditorGUILayout.EndHorizontal();
+            Lrl.drawElementCallback += DrawElementE;
+            Lrl.drawElementCallback += DrawElementF;
+            Lrl.elementHeightCallback += GetElementHeight;
+            Lrl.drawHeaderCallback += DrawLHeader;
+            Lrl.DoLayoutList();
+            Rrl.drawElementCallback += DrawRElementE;
+            Rrl.drawElementCallback += DrawRElementF;
+            Rrl.elementHeightCallback += GetElementHeight;
+            Rrl.drawHeaderCallback += DrawRHeader;
+            Rrl.DoLayoutList();
+            EditorGUILayout.EndHorizontal();
+        }
     }
 
     private void Update()
