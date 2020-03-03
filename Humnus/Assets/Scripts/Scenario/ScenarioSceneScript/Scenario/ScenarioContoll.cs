@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 //シナリオシーン全体を管理するスクリプト
 public class ScenarioContoll : MonoBehaviour
 {
-    [SerializeField,Header("シナリオロードクラス")]
+    [SerializeField, Header("シナリオロードクラス")]
     private ScenarioLoad scenario_Load = null;
     [SerializeField]
     private ScenarioManager s_Manager = null;
@@ -22,28 +22,39 @@ public class ScenarioContoll : MonoBehaviour
     private List<string[]> scenarioData;
     private Timer autoScenarioTimer;
 
-    //読み込んだデータの各配列の番号
-    private const int LOAD_SCENARIO_TEXT = 0;    //シナリオテキストのデータ番号
-    private const int LOAD_CHARACTER_NAME = 1;   //キャラクターの名前のデータ番号
-    private const int LOAD_CHARACTER_FACIAL = 2; //キャラクターの表情のデータ番号
-    private const int LOAD_BGM = 3;              //BGMのデータ番号
-    private const int LOAD_VOICE = 4;            //Voiceのデータ番号
-    private const int LOAD_SE = 5;               //SEのデータ番号
-    private const int LOAD_FIRST_DISPLAY=6;      //一人目を表示するデータ番号
-    private const int LOAD_SECOND_DISPLAY=7;     //二人目を表示するデータ番号
-    private const int LOAD_FADE = 8;             //画面フェード管理データ番号
-    private const int LOAD_BACKGROUND = 9;       //背景のデータ番号
+    private enum LoadScenarioType
+    {
+        LOAD_SCENARIO_TEXT = 0,              //シナリオテキストのデータ番号
+        LOAD_CHARACTER_NAME,                 //キャラクターの名前のデータ番号
+        LOAD_CHARACTER_FACIAL,               //キャラクターの表情のデータ番号
+        LOAD_BGM,                            //BGMのデータ番号
+        LOAD_VOICE,                          //Voiceのデータ番号
+        LOAD_SE,                             //SEのデータ番号
+        LOAD_FIRST_DISPLAY,                  //一人目を表示するデータ番号
+        LOAD_SECOND_DISPLAY,                 //二人目を表示するデータ番号
+        LOAD_FADE,                           //画面フェード管理データ番号
+        LOAD_BACKGROUND,                     //背景のデータ番号
+    }
+
+    private enum ScenarioType
+    {
+        Load,
+        Empty,
+        Talk,
+        TalkEnd,
+        End,
+    }
+    private ScenarioType type;
 
     // Start is called before the first frame update
     void Start()
     {
+        type = ScenarioType.Load;
         ScenarioDataInfo.Instance.scenarioTextIndex = 0;
         scenarioData = new List<string[]>();
         scenarioData = scenario_Load.LoadScenarioData();
-        //sound_Load.Load();
         scenarioData.RemoveAt(0);//データ外のものを削除
         Initialize();
-        LoadData();
         autoScenarioTimer = new Timer(3.0f);
     }
 
@@ -62,19 +73,62 @@ public class ScenarioContoll : MonoBehaviour
     /// <summary>
     /// 各クラスにデータを渡す
     /// </summary>
-    private void LoadData()
+    private IEnumerator LoadData()
     {
-        fadeControl.SetFadeData(GiveScenarioData(LOAD_FADE));
-        soundManager.Load();
-        soundManager.SetSoundData(GiveScenarioData(LOAD_BGM),GiveScenarioData(LOAD_SE),GiveScenarioData(LOAD_VOICE));
-        s_Manager.SetScenario(GiveScenarioData(LOAD_SCENARIO_TEXT));
-        c_Manager.SetDisplayData(GiveScenarioData(LOAD_FIRST_DISPLAY), GiveScenarioData(LOAD_SECOND_DISPLAY));
-        c_Manager.Load(GiveScenarioData(LOAD_CHARACTER_FACIAL), GiveScenarioData(LOAD_CHARACTER_NAME));
-        backGround.SetBackGroundData(GiveScenarioData(LOAD_BACKGROUND));
+        type = ScenarioType.Empty;
+        fadeControl.SetFadeData(GiveScenarioData((int)LoadScenarioType.LOAD_FADE));
+
+        yield return StartCoroutine(soundManager.Load());
+
+        soundManager.SetSoundData(
+            GiveScenarioData((int)LoadScenarioType.LOAD_BGM),
+            GiveScenarioData((int)LoadScenarioType.LOAD_SE),
+            GiveScenarioData((int)LoadScenarioType.LOAD_VOICE));
+
+        s_Manager.SetScenario(GiveScenarioData((int)LoadScenarioType.LOAD_SCENARIO_TEXT));
+
+        c_Manager.SetDisplayData(
+            GiveScenarioData((int)LoadScenarioType.LOAD_FIRST_DISPLAY),
+            GiveScenarioData((int)LoadScenarioType.LOAD_SECOND_DISPLAY),
+            GiveScenarioData((int)LoadScenarioType.LOAD_CHARACTER_FACIAL),
+            GiveScenarioData((int)LoadScenarioType.LOAD_CHARACTER_NAME));
+
+        backGround.SetBackGroundData(GiveScenarioData((int)LoadScenarioType.LOAD_BACKGROUND));
+
+        yield return StartCoroutine(c_Manager.Load());
+
+        soundManager.bgm_Controller.FadeOutBGM();
+        fadeControl.FadeOut();
+        yield return null;
+
+        c_Manager.TextUpdate();
+        type = ScenarioType.Talk;
+        Debug.Log("読み込みを終了します");
     }
 
     // Update is called once per frame
     void Update()
+    {
+        switch (type)
+        {
+            case ScenarioType.Load:
+                StartCoroutine(LoadData());
+                break;
+            case ScenarioType.Empty:
+                break;
+            case ScenarioType.Talk:
+                Talk();
+                break;
+            case ScenarioType.TalkEnd:
+                TalkEnd();
+                break;
+            case ScenarioType.End:
+                End();
+                break;
+        }
+    }
+
+    private void Talk()
     {
         if (ScenarioDataInfo.Instance.pauseFlag)
             return;
@@ -83,7 +137,7 @@ public class ScenarioContoll : MonoBehaviour
 
         if (s_Manager.ScenarioEndFlag)
         {
-            Debug.Log("全部表示しきりました");
+            type = ScenarioType.End;
             return;
         }
         AutoScenario();
@@ -92,12 +146,22 @@ public class ScenarioContoll : MonoBehaviour
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
             if (s_Manager.SentenceEndFlag)
-                ChangeScenarioText();
+                type = ScenarioType.TalkEnd;
             else
                 s_Manager.TouchToDisplayText();
             return;
         }
         s_Manager.TextUpdate();
+    }
+
+    private void TalkEnd()
+    {
+        ChangeScenarioText();
+    }
+
+    private void End()
+    {
+        GetComponent<SceneChanger>().SceneChange();
     }
 
     /// <summary>
@@ -142,5 +206,6 @@ public class ScenarioContoll : MonoBehaviour
         c_Manager.TextUpdate();
         backGround.BackGroundChange();
         autoScenarioTimer.Initialize();
+        type = ScenarioType.Talk;
     }
 }
