@@ -41,7 +41,7 @@ public class MusicDifficultySelecter : MonoBehaviour
     private void ChangeDifficulty(int diff)
     {
         musicDifficulty = (MusicDifficulty)diff;
-        toUI.ToUI();
+        //toUI.ToUI();
     }
 
     private void SetColor()

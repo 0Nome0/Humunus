@@ -26,7 +26,7 @@ public class CharaDetailWindow : MonoBehaviour
     public Image charactor = null;
 
     public CharacterData data = null;
-
+    public Button btn = null;
 
 
     public void Close()
@@ -37,6 +37,7 @@ public class CharaDetailWindow : MonoBehaviour
 
     public void Setting()
     {
+        btn.enabled = true;
         bgm.volume = 0.3f;
 
         source.clip = data.voice1;

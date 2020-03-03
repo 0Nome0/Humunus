@@ -50,7 +50,7 @@ namespace NerScript.Games
         {
             ChangeSceneStart();
             NextSceneAsync(onLoaded);
-            GC.Collect();
+            //GC.Collect();
         }
 
         private async void NextSceneAsync(Action onLoaded)
@@ -58,10 +58,10 @@ namespace NerScript.Games
             Subject<float> progress = new Subject<float>();
             ScreenManager.LoadSceneScreenSystem.Instance.Show(progress);
 
-            await
-                SceneManager
-                   .LoadSceneAsync(nextScene)
-                   .ConfigureAwait(Progress.Create<float>(progress.OnNext));
+            await UniTask.DelayFrame(1);
+            await SceneManager
+                  .LoadSceneAsync(nextScene)
+                  .ConfigureAwait(Progress.Create<float>(progress.OnNext));
 
             progress.OnCompleted();
             onLoaded?.Invoke();

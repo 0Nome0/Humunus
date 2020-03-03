@@ -13,6 +13,9 @@ public class ScenarioDataToUI : MonoBehaviour
     [SerializeField] private GridPosition grid = null;
     [SerializeField] private SelectScenarioLineUper scenarioDatas = null;
 
+    public Button nextBtn = null;
+    public Image btnCover = null;
+    public AudioSource audio = null;
 
     private void Start()
     {
@@ -28,7 +31,11 @@ public class ScenarioDataToUI : MonoBehaviour
     public void ToUI()
     {
         ScenarioData data = scenarioDatas.GetScenarioData(grid.CurrentGrid);
+        nextBtn.enabled = data.openFlag;
+        btnCover.enabled = !data.openFlag;
         UIs.icon.sprite = data.icon;
+        audio.clip = data.clip;
+        audio.Play();
     }
 }
 

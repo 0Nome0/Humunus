@@ -7234,7 +7234,7 @@ MonoBehaviour:
     type: 0
   flowNotesList: []
   time: 0
-  tapArea: {fileID: 1498467585}
+  tapArea: {fileID: 1742906159}
   scoreManager: {fileID: 254168874}
   longImages: []
   audio: {fileID: 580880514}

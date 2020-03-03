@@ -18,7 +18,6 @@ public class SelectScenarioLineUper : MonoBehaviour
     [SerializeField] private float iconSpace = 55;
 
 
-
     private void OnValidate()
     {
         if (layouter == null)
@@ -53,7 +52,7 @@ public class SelectScenarioLineUper : MonoBehaviour
             (obj, i) =>
             {
                 ScenarioSelectIcon icon = obj.GetComponent<ScenarioSelectIcon>();
-                //icon.image.sprite = datas[i].icon;
+                icon.cover.enabled = !datas[i].openFlag;
                 icon.text.text = datas[i].scenarioTitle;
             });
 

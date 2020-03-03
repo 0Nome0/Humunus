@@ -6,6 +6,9 @@ using System;
 using System.Text;
 using UnityEditor;
 
+#if UNITY_EDITOR
+
+
 public class JsonConvert
 {
     public static string ToJson(object obj)
@@ -62,3 +65,5 @@ public class JsonConvert
         }
     }
 }
+
+#endif

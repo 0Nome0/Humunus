@@ -15,7 +15,8 @@ public class MusicData : ScriptableObject, IManagedByID
     public string authors;
     public int difficult;
     public string info;
-    public string notesData;
+    public NotesData notesDataR;
+    public NotesData notesDataL;
     public float feverStart;
     public float feverEnd;
 

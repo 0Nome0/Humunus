@@ -34,8 +34,8 @@ public class PlayScoreManager : MonoBehaviour
     private ObjectAnimationController textAnimController = null;
 
 
-
     public static int score = 1234567;
+    public static int maxCombo = 987;
     public static int combo = 987;
     public static int perfectCount = 123;
     public static int greatCount = 456;
@@ -43,7 +43,7 @@ public class PlayScoreManager : MonoBehaviour
 
     private void Start()
     {
-        score = combo = perfectCount = greatCount = missCount = 0;
+        score = combo = maxCombo = perfectCount = greatCount = missCount = 0;
     }
 
 
@@ -69,6 +69,7 @@ public class PlayScoreManager : MonoBehaviour
                 player.hitPoint.Heal(20);
             }
             combo++;
+            if(maxCombo < combo) maxCombo = combo;
             comboText.text = combo + "\nCombo!";
         }
         else

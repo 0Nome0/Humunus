@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using NerScript;
 using NerScript.Anime;
+using TMPro;
 
 
 namespace NerScript
 {
     public class ScenarioSelectIcon : MonoBehaviour
     {
-        public Image image = null;
-        public Text text = null;
+        public TMP_Text text = null;
+        public Image cover = null;
 
         [SerializeField] private Vector3 anker = new Vector3();
         [SerializeField] private float outRange = 1;

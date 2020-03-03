@@ -13,22 +13,26 @@ public class MusicDataToUI : MonoBehaviour
     [SerializeField] private GridPosition grid = null;
     [SerializeField] private SelectMusicLineUper musicDatas = null;
     public AudioSource source = null;
-
+    public Image btnCover = null;
+    public Button btn = null;
 
     private void Start()
     {
-        grid.OnGrid.Subscribe(grid => OnGrid());
+        grid.OnGrid.Subscribe(OnGrid);
 
     }
 
-    private void OnGrid()
+    private void OnGrid(int grid)
     {
-        ToUI();
+        ToUI(grid);
     }
 
-    public void ToUI()
+    public void ToUI(int grid)
     {
-        MusicData data = musicDatas.GetMusicData(grid.CurrentGrid);
+        MusicData data = musicDatas.GetMusicData(grid);
+
+        btnCover.enabled = !data.openFlag[0];
+        btn.enabled = data.openFlag[0];
 
         UIs.name.text = data.musicName;
         UIs.autor.text = "作曲：" + data.authors;

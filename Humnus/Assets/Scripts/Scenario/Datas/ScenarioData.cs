@@ -11,7 +11,7 @@ public class ScenarioData : ScriptableObject, IManagedByID
     public Sprite icon = null;
     public int episode = 0;
     public string scenarioTitle = "";
-
+    public AudioClip clip = null;
 
     public bool openFlag = false;
     public bool clearFlag = false;

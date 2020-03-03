@@ -54,7 +54,7 @@ public class SelectMusicLineUper : MonoBehaviour
             (obj, i) =>
             {
                 MusicSelectIcon icon = obj.GetComponent<MusicSelectIcon>();
-                //icon.sprite = datas[i].icon;
+                icon.cover.enabled = !datas[i].openFlag[0];
                 icon.text.text = datas[i].musicName;
             });
 

@@ -20,7 +20,8 @@ MonoBehaviour:
   authors: TAKAHIRO
   difficult: 4
   info: 
-  notesData: 
+  notesDataR: {fileID: 0}
+  notesDataL: {fileID: 0}
   feverStart: 0
   feverEnd: 0
   openConditions: 

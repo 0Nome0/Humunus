@@ -11,27 +11,25 @@ namespace NerScript.Games
 {
     public class LoadSceneScreenSystem : SingletonMonoBehaviour<LoadSceneScreenSystem>
     {
-        [SerializeField] private Slider slider = null;
+        [SerializeField] private ImageController image = null;
 
 
         public void Initialize()
         {
             instance = this;
             gameObject.SetActive(false);
-            slider.value = 0;
+            image.Value = 0;
         }
 
         public void Show(Subject<float> progress)
         {
             gameObject.SetActive(true);
-            progress.Subscribe(
-                f => slider.value = f,
-                () => Hide()
-                );
+            progress.Subscribe(f => image.Value = f, Hide);
         }
+
         public void Hide()
         {
-            slider.value = 0;
+            image.Value = 0;
             gameObject.SetActive(false);
         }
     }

@@ -66,7 +66,7 @@ namespace NerScript.UI
         {
             foreach (var button in hideSetting.buttons)
             {
-                button.enabled = isShow;
+                button.enabled = !isShow;
             }
         }
 

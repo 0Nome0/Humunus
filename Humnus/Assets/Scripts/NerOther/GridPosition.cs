@@ -23,11 +23,11 @@ public class GridPosition : MonoBehaviour
     private bool isGriding = true;
 
 
-    private Subject<int> onGrid = new Subject<int>();
     public IOptimizedObservable<int> OnGrid => onGrid;
+    private readonly Subject<int> onGrid = new Subject<int>();
 
-    private Subject<int> onGridChange = new Subject<int>();
     public IOptimizedObservable<int> OnGridChange => onGridChange;
+    private readonly Subject<int> onGridChange = new Subject<int>();
 
     private Vector3 Position
     {
@@ -37,7 +37,7 @@ public class GridPosition : MonoBehaviour
 
 
 
-    public void StopGrig()
+    public void StopGrid()
     {
         isGriding = false;
     }
@@ -49,11 +49,12 @@ public class GridPosition : MonoBehaviour
 
     public void Start()
     {
-        isGriding = true;
+        StartGrid();
     }
 
     public void Update()
     {
+        if(GlobalScreenInput.Instance.HasPoint) return;
         scroll.velocity -= scroll.velocity * antiScrollPower;
         int grid = GetGrid();
         float distance = (CurrentGrid * gridSize) - Position.GetAxis(axis);
@@ -74,9 +75,11 @@ public class GridPosition : MonoBehaviour
             return;
         }
 
+        if(!isGriding) return;
+
         scroll.velocity = Vector2.zero;
 
-        if (Mathf.Abs(distance) < gridPower * gridPower)
+        if (Mathf.Abs(distance) <= gridPower * gridPower)
         {
             OnGridEnd(CurrentGrid);
         }
@@ -95,9 +98,9 @@ public class GridPosition : MonoBehaviour
 
     public void OnGridEnd(int grid)
     {
+        StopGrid();
         transform.SetPosition(spaceType, axis, (grid * gridSize));
         CurrentGrid = grid;
         onGrid.OnNext(CurrentGrid);
-        StopGrig();
     }
 }

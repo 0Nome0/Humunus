@@ -20,11 +20,12 @@ MonoBehaviour:
   authors: Humnus
   difficult: 10
   info: 
-  notesData: 
+  notesDataR: {fileID: 0}
+  notesDataL: {fileID: 0}
   feverStart: 0
   feverEnd: 0
   openConditions: 
-  openFlag: 010101
+  openFlag: 000000
   clearData:
   - clearRank: 0
     maxScore: 0

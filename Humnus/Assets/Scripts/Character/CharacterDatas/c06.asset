@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd1ed8d4816d424e8acca5641e16873, type: 3}
   m_Name: c06
   m_EditorClassIdentifier: 
-  isOpened: 0
+  isOpened: 1
   characterName: "\u30D5\u30A3\u30ED"
   icon: {fileID: 21300000, guid: df43f51571403ff4089adb468c0c2990, type: 3}
   icon2: {fileID: 1107025299112702630, guid: 07034a6f00932304e97830b3bcb46cd2, type: 3}
+  icon3: {fileID: -4363125621240413204, guid: 07034a6f00932304e97830b3bcb46cd2, type: 3}
   iconAu: {fileID: 21300000, guid: 84779f2459bf16743a456ac3b7ab8fd7, type: 3}
   info: "\u304A\u6BCD\u3055\u3093\u3092\u63A2\u3059\u307E\u305B\u305F\u5143\u6C17\u5A18\u3002\u30DB\u30EB\u30F3\u306B\u3064\u3044\u3066\u3044\u308B\u5F26\u306F\u5B9F\u306F\u304A\u6BCD\u3055\u3093\u306E\u3082\u306E\u3060\u3063\u305F...??\u5B50\r\n\u4F9B\u6271\u3044\u3092\u3055\u308C\u308B\u3068\u3088\u304F\u6012\u308B\u3002"
   hp: 150

@@ -35,7 +35,7 @@ public class PlayResultToUI : MonoBehaviour
         scoreText.text = "0";
 
         score.text = PlayScoreManager.score.InsertComma();
-        combo.text = PlayScoreManager.combo.ToString();
+        combo.text = PlayScoreManager.maxCombo.ToString();
         perfect.text = PlayScoreManager.perfectCount.ToString();
         great.text = PlayScoreManager.greatCount.ToString();
         miss.text = PlayScoreManager.missCount.ToString();
@@ -49,7 +49,7 @@ public class PlayResultToUI : MonoBehaviour
         {
             p
             .WaitFrame(30)
-            .IntToIntAnim(scoreCountUpFrame, 0, PlayScoreManager.combo,
+            .IntToIntAnim(scoreCountUpFrame, 0, PlayScoreManager.maxCombo,
                 i => comboText.text = i.ToString());
         })
         .IntToIntAnim(scoreCountUpFrame, 0, PlayScoreManager.score,

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NerScript;
 using NerScript.Anime;
+using TMPro;
 using UnityEngine.UI;
 
 
@@ -10,7 +11,8 @@ namespace NerScript
 {
     public class MusicSelectIcon : MonoBehaviour
     {
-        public Text text = null;
+        public TMP_Text text = null;
+        public Image cover = null;
         [SerializeField] private Vector3 anker = new Vector3();
         [SerializeField] private float outRange = 1;
         [SerializeField] private EasingTypes easing = EasingTypes.LineIn;
@@ -23,8 +25,9 @@ namespace NerScript
 
         public void Start()
         {
-            max.position.y = min.position.y + transform.localPosition.y;
-            min.position.y = transform.localPosition.y;
+            float lPosY = transform.localPosition.y;
+            max.position.y = min.position.y + lPosY;
+            min.position.y = lPosY;
         }
 
 

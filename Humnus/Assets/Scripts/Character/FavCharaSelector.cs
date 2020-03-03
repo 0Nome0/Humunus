@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NerScript;
 using NerScript.UI;
 using UniRx;
@@ -9,12 +10,15 @@ using UnityEngine.UI;
 public class FavCharaSelector : MonoBehaviour
 {
     public static PlayerID fav = PlayerID.Lucius;
+    public Image homeCharacter = null;
+
     public Image character = null;
     public ScriptableObjectDatabase charaDB = null;
     public List<LongInput> charas;
 
     public PopupWindowController popUp = null;
     public CharaDetailWindow dataWindow = null;
+
 
     private void Start()
     {
@@ -34,7 +38,12 @@ public class FavCharaSelector : MonoBehaviour
             chara
             .OnPoint
             .Where(b=> b == LongInput.PointerEvent.Click && !chara.longedInput)
-            .Subscribe(_ => { character.sprite = data.icon; });
+            .Subscribe(_ =>
+            {
+                homeCharacter.sprite = data.icon3;
+                character.sprite = data.icon;
+                fav = (PlayerID)data.ID;
+            });
 
             chara
             .OnLongPress

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd1ed8d4816d424e8acca5641e16873, type: 3}
   m_Name: c13
   m_EditorClassIdentifier: 
-  isOpened: 0
+  isOpened: 1
   characterName: "\u30EA\u30E5\u30CE\u30B9"
   icon: {fileID: 21300000, guid: 37a49cff1a28f28448cc86b4a702bf85, type: 3}
   icon2: {fileID: 6083371952169704533, guid: 4ac047028da7afe4b8077db922a7d43d, type: 3}
+  icon3: {fileID: 6158427643918577953, guid: 4ac047028da7afe4b8077db922a7d43d, type: 3}
   iconAu: {fileID: 21300000, guid: 4b0942a241fd54d4691b1c2472611991, type: 3}
   info: "\u5C0F\u3055\u3044\u6642\u306B\u30AB\u30B5\u30EB\u30C6\u30A3\u30EA\u30AA\u306B\u62FE\u308F\u308C\u3001\u80B2\u3066\u3089\u308C\u308B\u3002\u7121\u53E3\u3067\u4EBA\u306E\u547D\u4EE4\u306B\u306F\u3042\u307E\u308A\u5F93\u308F\u306A\u3044\u304C\r\n\u3001\u30AB\u30B5\u30EB\u30C6\u30A3\u30EA\u30AA\u306E\u8A00\u3046\u4E8B\u3060\u3051\u306F\u5FC5\u305A\u805E\u304F\u3002"
   hp: 100

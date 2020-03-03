@@ -48,6 +48,15 @@ namespace NerScript.Editor
             }
             using(var change = new EditorGUI.ChangeCheckScope())
             {
+                Sprite sp = (Sprite)EditorGUILayout.ObjectField("アイコン3", data.icon3, typeof(Sprite), false);
+                if(change.changed)
+                {
+                    UndoRecord("icon3Change");
+                    data.icon3 = sp;
+                }
+            }
+            using(var change = new EditorGUI.ChangeCheckScope())
+            {
                 Sprite sp = (Sprite)EditorGUILayout.ObjectField("著作", data.iconAu, typeof(Sprite), false);
                 if(change.changed)
                 {

@@ -21,16 +21,28 @@ public class GlobalScreenInput : SingletonClass<GlobalScreenInput>, GlobalEvent.
     public void Enable() => input.Enable();
     public void Disable() => input.Disable();
 
+    public bool HasPoint
+    {
+        get
+        {
+            return
+            (Mouse.current != null && Mouse.current.leftButton.isPressed) ||
+            (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed);
+        }
+
+    }
+
     public Vector2 PointDelta
     {
-        get {
+        get
+        {
             Vector2 delta = Vector2.zero;
-            if (Mouse.current != null && Mouse.current.delta.ReadValue() != Vector2.zero)
+            if(Mouse.current != null && Mouse.current.delta.ReadValue() != Vector2.zero)
             {
                 Debug.Log("mouseMove!");
                 delta = Mouse.current.delta.ReadValue();
             }
-            else if (Touchscreen.current != null && Touchscreen.current.delta.ReadValue() != Vector2.zero)
+            else if(Touchscreen.current != null && Touchscreen.current.delta.ReadValue() != Vector2.zero)
             {
                 Debug.Log("touchMove!");
                 delta = Touchscreen.current.delta.ReadValue();

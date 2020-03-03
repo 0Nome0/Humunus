@@ -15,6 +15,7 @@ public class CharacterData : ScriptableObject, IManagedByID
     public string characterName;
     public Sprite icon;
     public Sprite icon2;
+    public Sprite icon3;
     public Sprite iconAu;
     public string info;
     public int hp = 1;
