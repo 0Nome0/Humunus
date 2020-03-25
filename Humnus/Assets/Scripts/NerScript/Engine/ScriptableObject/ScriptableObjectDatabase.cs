@@ -7,7 +7,10 @@ using Object = UnityEngine.Object;
 
 namespace NerScript
 {
-    [CreateAssetMenu(fileName = "ScriptableObjectDatabase", menuName = "NerScript/ScriptableObjectDatabase", order = 1000)]
+    [CreateAssetMenu(
+        fileName = "ScriptableObjectDatabase",
+        menuName = "NerScript/ScriptableObjectDatabase",
+        order = 1000)]
     public class ScriptableObjectDatabase : ScriptableObject, IManagedByID
     {
         [SerializeField] int IManagedByID.ID { get; set; }

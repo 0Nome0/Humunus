@@ -19,13 +19,16 @@ public class ScenarioDataToUI : MonoBehaviour
 
     private void Start()
     {
-        grid.OnGrid.Subscribe(grid => OnGrid());
+        grid.OnGrid.Subscribe(OnGrid);
 
     }
 
-    private void OnGrid()
+    public static int scenarioID = -1;
+
+    private void OnGrid(int grid)
     {
         ToUI();
+        scenarioID = grid;
     }
 
     public void ToUI()

@@ -30,6 +30,7 @@ public class MusicDataToUI : MonoBehaviour
     public void ToUI(int grid)
     {
         MusicData data = musicDatas.GetMusicData(grid);
+        Player.musicID = grid;
 
         btnCover.enabled = !data.openFlag[0];
         btn.enabled = data.openFlag[0];
@@ -44,7 +45,6 @@ public class MusicDataToUI : MonoBehaviour
         }
         UIs.difficalt.text = $"難易度:{diff}";
         UIs.icon.sprite = data.icon;
-
         source.clip = data.audiClip;
         source.Play();
         source.time = 10;

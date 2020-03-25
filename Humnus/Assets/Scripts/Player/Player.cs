@@ -1,5 +1,7 @@
 ﻿using System;
+using NerScript;
 using NerScript.Anime;
+using NerScript.Games;
 using NerScript.Resource;
 using UnityEngine;
 using UniRx;
@@ -9,13 +11,23 @@ public class Player : MonoBehaviour
 {
     public HitPointController hitPoint;
 
+    public static int musicID = -1;
+
     [SerializeField] private BGMPlayer bgm = null;
     [SerializeField] private Text text = null;
     public NotesGenerator LNotes = null;
     public NotesGenerator RNotes = null;
+    public AudioSource audio = null;
+    public SceneTransitioner scener = null;
+    public ScriptableObjectDatabase database = null;
+
 
     private void Start()
     {
+        var data = database.GetObjectByID<MusicData>(musicID);
+        LNotes.notesData = data.notesDataL;
+        RNotes.notesData = data.notesDataR;
+
         hitPoint.OnDead.Subscribe(_ =>
         {
             if(PlayCharacter.HasPlayer(PlayerID.Orphia) && 0 < PlayCharacter.Count(PlayerID.Orphia).Value)
@@ -30,11 +42,11 @@ public class Player : MonoBehaviour
             .ObjectAnimation()
             .PlayActionAnim(() => { text.text = "3"; })
             .ScaleAbs(1, 1)
-            .FixedScaleAbs(3, 1)
             .PlayActionAnim(() => { text.text = "2"; })
-            .ScaleAbs(1, 1)
             .FixedScaleAbs(3, 1)
+            .ScaleAbs(1, 1)
             .PlayActionAnim(() => { text.text = "1"; })
+            .FixedScaleAbs(3, 1)
             .ScaleAbs(1, 1)
             .FixedScaleAbs(3, 1)
             .AnimationStart(() =>
@@ -64,12 +76,18 @@ public class Player : MonoBehaviour
         //hitPoint.
         if(PlayCharacter.HasPlayer(PlayerID.Tem))
         {
-            hitPoint.GrowMaxHP(50,true);
+            hitPoint.GrowMaxHP(50, true);
         }
     }
 
     private void Update()
     {
-
+        Debug.Log($"{audio.time}/{audio.clip.length}");
+        if(audio.clip.length <= audio.time)
+        {
+            Observable
+            .Timer(TimeSpan.FromSeconds(5))
+            .Subscribe(_ => { scener.NextAsync(); });
+        }
     }
 }

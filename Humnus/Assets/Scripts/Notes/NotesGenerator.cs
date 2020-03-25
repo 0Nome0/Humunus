@@ -28,6 +28,10 @@ public class NotesGenerator : MonoBehaviour
 
     [SerializeField] private float speed = 1;
 
+    public NotesData notesData = null;
+
+    private List<Notes> NotesList => notesData.notes;
+
     [SerializeField] private List<Notes> notesList;
     [SerializeField] private Pool<NotesObject> notesPool;
     [SerializeField] private List<NotesObject> flowNotesList;

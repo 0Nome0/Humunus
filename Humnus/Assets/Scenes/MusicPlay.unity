@@ -6533,7 +6533,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score : 100000'
+  m_text: 'Score : 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -6542,8 +6542,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4292280064
+  m_fontColor: {r: 0, g: 1, b: 0.8388777, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6561,7 +6561,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 11.05
+  m_fontSize: 12
   m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6602,7 +6602,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 648503087}
-    characterCount: 14
+    characterCount: 9
     spriteCount: 0
     spaceCount: 2
     wordCount: 2
@@ -7123,6 +7123,7 @@ MonoBehaviour:
   laneStart: {fileID: 509578742}
   laneEnd: {fileID: 56896636}
   speed: 0.8
+  notesData: {fileID: 0}
   notesList:
   - time: 2.379
     type: 0
@@ -7215,6 +7216,7 @@ MonoBehaviour:
   laneStart: {fileID: 1480038763}
   laneEnd: {fileID: 17510612}
   speed: 0.8
+  notesData: {fileID: 0}
   notesList:
   - time: 4.731
     type: 1
@@ -7439,6 +7441,9 @@ MonoBehaviour:
   text: {fileID: 1426700076}
   LNotes: {fileID: 953545952}
   RNotes: {fileID: 951854773}
+  audio: {fileID: 580880514}
+  scener: {fileID: 650750493}
+  database: {fileID: 0}
 --- !u!114 &1317123550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8764,8 +8769,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255360
-  m_fontColor: {r: 0, g: 1, b: 0, a: 1}
+    rgba: 65280
+  m_fontColor: {r: 0, g: 1, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

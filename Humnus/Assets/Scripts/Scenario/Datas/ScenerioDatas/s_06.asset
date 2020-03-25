@@ -15,6 +15,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 109b5a372336d3441aeb2e812daef0fd, type: 3}
   episode: 5
   scenarioTitle: "\u99C5\u306B\u884C\u304F"
-  clip: {fileID: 8300000, guid: 8f8e4cdb89c1eb84fba113c625f42d7a, type: 3}
+  clip: {fileID: 8300000, guid: e685625d05015244789b430f44013d9e, type: 3}
   openFlag: 0
   clearFlag: 0

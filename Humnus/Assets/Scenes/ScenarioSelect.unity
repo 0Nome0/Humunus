@@ -2095,7 +2095,7 @@ MonoBehaviour:
     elementLayoutCount: 1
     direction: 3
   startWithLayout: 0
-  size: {x: 0.9261939, y: 0.2894356}
+  size: {x: 1.7927171, y: 0.5602241}
   validate: 0
 --- !u!114 &6974212721458471374
 MonoBehaviour:

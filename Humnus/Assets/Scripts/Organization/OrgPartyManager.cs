@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NerScript;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -18,9 +19,13 @@ public class OrgPartyManager : MonoBehaviour
     [SerializeField]
     List<int> dontUseId;
 
+
+    //キャラデータベースを参照
+    public ScriptableObjectDatabase database = null;
+
     OrgChara[] deck = new OrgChara[2];
     List<OrgChara> orgCharas = new List<OrgChara>();
-    
+
     PointerEventData pointer;
 
     // Start is called before the first frame update
@@ -31,6 +36,9 @@ public class OrgPartyManager : MonoBehaviour
         deck = GameObject.Find("Party").GetComponentsInChildren<OrgChara>();
         foreach (var x in deck)
             x.id = 100;
+
+        //deck[0].id = (int)PlayCharacter.Left;
+        //deck[1].id = (int)PlayCharacter.Right;
     }
 
     // Update is called once per frame
@@ -95,7 +103,7 @@ public class OrgPartyManager : MonoBehaviour
             {
                 if (x.id == clickOrg.id)
                 {
-                    x.GetComponent<Image>().sprite = x.sprite;
+                    x.transform.parent.GetComponent<Image>().sprite = x.sprite;
                     clickOrg.CanSelect();
                     foreach (var y in orgCharas)
                     {
@@ -124,10 +132,13 @@ public class OrgPartyManager : MonoBehaviour
                 continue;
 
             x.id = clickOrg.id;
-            x.gameObject.GetComponent<Image>().sprite = clickOrg.sprite;
+            x.transform.parent.GetComponent<Image>().sprite = clickOrg.sprite;
             clickOrg.CantSelect();
             break;
         }
+        PlayCharacter.Left = (PlayerID)deck[0].id;
+        PlayCharacter.Right = (PlayerID)deck[1].id;
+        //選択されたキャラをセット
 
         if (deck[0].id != 100 && deck[1].id != 100)
         {
@@ -146,15 +157,15 @@ public class OrgPartyManager : MonoBehaviour
     {
         for (int i = 0; i < characters.Count; i++)
         {
-            GameObject obj = Instantiate(charaButton, Vector2.zero, Quaternion.identity);
-            obj.transform.SetParent(GameObject.Find("Content").transform);
-            obj.transform.localPosition = new Vector2(-1.5f + ((i % 3) * 1.45f) + 0.15f, 0 - 1.45f * (int)(i / 3) - 0.7f) * 40;
+            GameObject obj = Instantiate(charaButton,GameObject.Find("Content").transform);
+
             obj = obj.transform.GetChild(0).gameObject;
             obj.GetComponent<OrgChara>().id = i;
+            //ローカル座標をGridLayoutComponentに委託
             obj.GetComponent<Image>().sprite = characters[i];
 
-            if (dontUseId.Contains(i))
-                obj.GetComponent<OrgChara>().CantUse();
+            if (!database.GetObjectByID<CharacterData>(i).isOpened)
+                obj.GetComponent<OrgChara>().CantUse();//使用不可をデータベース引用に変更
 
             orgCharas.Add(obj.GetComponent<OrgChara>());
         }

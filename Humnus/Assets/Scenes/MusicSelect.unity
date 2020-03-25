@@ -1037,7 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8af1daefcb42e624086b213cb2dc9f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: MusicPlay
+  nextScene: OrganizationScene
 --- !u!1001 &351680368
 PrefabInstance:
   m_ObjectHideFlags: 0
