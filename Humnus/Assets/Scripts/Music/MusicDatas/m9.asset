@@ -20,8 +20,8 @@ MonoBehaviour:
   authors: Humnus
   difficult: 9
   info: 
-  notesDataR: {fileID: 0}
-  notesDataL: {fileID: 0}
+  notesDataR: {fileID: 11400000, guid: edde8dece2fd4b14f975e19438535521, type: 2}
+  notesDataL: {fileID: 11400000, guid: 698339cda5216d448acf693985f584c1, type: 2}
   feverStart: 0
   feverEnd: 0
   openConditions: 

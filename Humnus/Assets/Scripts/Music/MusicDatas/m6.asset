@@ -20,8 +20,8 @@ MonoBehaviour:
   authors: "\u30CA\u30B9\u30AB"
   difficult: 6
   info: 
-  notesDataR: {fileID: 0}
-  notesDataL: {fileID: 0}
+  notesDataR: {fileID: 11400000, guid: 3c87500f5dd1dab4e87b7d4355c0c3ca, type: 2}
+  notesDataL: {fileID: 11400000, guid: 825566a91f2a89942b9ed563fc9a05bd, type: 2}
   feverStart: 0
   feverEnd: 0
   openConditions: 
