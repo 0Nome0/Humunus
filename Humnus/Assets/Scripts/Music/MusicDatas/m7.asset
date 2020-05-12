@@ -25,7 +25,7 @@ MonoBehaviour:
   feverStart: 0
   feverEnd: 0
   openConditions: 
-  openFlag: 000000
+  openFlag: 010101
   clearData:
   - clearRank: 0
     maxScore: 0

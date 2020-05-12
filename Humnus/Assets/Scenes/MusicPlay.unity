@@ -7123,28 +7123,7 @@ MonoBehaviour:
   laneStart: {fileID: 509578742}
   laneEnd: {fileID: 56896636}
   speed: 0.8
-  notesData: {fileID: 11400000, guid: 5adf2788ac0c4a44caf16b6a302e64ff, type: 2}
-  notesList:
-  - time: 2.379
-    type: 0
-  - time: 2.968
-    type: 0
-  - time: 3.559
-    type: 0
-  - time: 6.504
-    type: 0
-  - time: 9.431
-    type: 1
-  - time: 10.022
-    type: 2
-  - time: 10.771
-    type: 0
-  - time: 11.791
-    type: 0
-  - time: 12.975
-    type: 0
-  - time: 14.146
-    type: 0
+  notesData: {fileID: 11400000, guid: a0e595e3d82235f48b4bb9e39bd78e50, type: 2}
   flowNotesList: []
   time: 0
   tapArea: {fileID: 1498467585}
@@ -7217,23 +7196,6 @@ MonoBehaviour:
   laneEnd: {fileID: 17510612}
   speed: 0.8
   notesData: {fileID: 0}
-  notesList:
-  - time: 4.731
-    type: 1
-  - time: 5.324
-    type: 2
-  - time: 5.906
-    type: 0
-  - time: 7.084
-    type: 0
-  - time: 7.679
-    type: 0
-  - time: 8.263
-    type: 0
-  - time: 11.209
-    type: 3
-  - time: 12.378
-    type: 0
   flowNotesList: []
   time: 0
   tapArea: {fileID: 1742906159}
@@ -7444,6 +7406,7 @@ MonoBehaviour:
   audio: {fileID: 580880514}
   scener: {fileID: 650750493}
   database: {fileID: 11400000, guid: b4f85e3b983b6b540bef578f39566437, type: 2}
+  isend: 0
 --- !u!114 &1317123550
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,4 +12,149 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a096f6669d44a682a1e452bc9bba3d, type: 3}
   m_Name: 6R
   m_EditorClassIdentifier: 
-  notes: []
+  notes:
+  - time: 15.554
+    type: 0
+  - time: 18.387
+    type: 0
+  - time: 20.854
+    type: 0
+  - time: 22.622
+    type: 0
+  - time: 23.315
+    type: 0
+  - time: 24.025
+    type: 1
+  - time: 24.738
+    type: 2
+  - time: 26.497
+    type: 0
+  - time: 26.852
+    type: 3
+  - time: 28.265
+    type: 1
+  - time: 29.677
+    type: 2
+  - time: 30.391
+    type: 1
+  - time: 32.501
+    type: 2
+  - time: 33.917
+    type: 3
+  - time: 35.578
+    type: 0
+  - time: 36.029
+    type: 0
+  - time: 36.739
+    type: 0
+  - time: 38.147
+    type: 0
+  - time: 38.859
+    type: 0
+  - time: 39.564
+    type: 0
+  - time: 40.256
+    type: 0
+  - time: 42.379
+    type: 0
+  - time: 43.081
+    type: 0
+  - time: 43.26
+    type: 0
+  - time: 43.783
+    type: 0
+  - time: 45.382
+    type: 1
+  - time: 46.621
+    type: 2
+  - time: 47.357
+    type: 0
+  - time: 49.444
+    type: 0
+  - time: 51.031
+    type: 1
+  - time: 51.913
+    type: 2
+  - time: 52.263
+    type: 1
+  - time: 54.757
+    type: 2
+  - time: 56.861
+    type: 0
+  - time: 57.396
+    type: 0
+  - time: 57.735
+    type: 0
+  - time: 58.098
+    type: 0
+  - time: 60.386
+    type: 0
+  - time: 60.919
+    type: 0
+  - time: 61.626
+    type: 0
+  - time: 63.91
+    type: 0
+  - time: 64.445
+    type: 0
+  - time: 64.794
+    type: 0
+  - time: 65.147
+    type: 0
+  - time: 67.447
+    type: 1
+  - time: 69.204
+    type: 2
+  - time: 70.973
+    type: 3
+  - time: 71.503
+    type: 0
+  - time: 71.844
+    type: 0
+  - time: 72.221
+    type: 0
+  - time: 74.501
+    type: 3
+  - time: 75.028
+    type: 0
+  - time: 75.393
+    type: 0
+  - time: 75.732
+    type: 0
+  - time: 76.266
+    type: 0
+  - time: 76.795
+    type: 0
+  - time: 77.144
+    type: 0
+  - time: 77.506
+    type: 0
+  - time: 79.797
+    type: 3
+  - time: 80.321
+    type: 0
+  - time: 80.666
+    type: 0
+  - time: 81.035
+    type: 0
+  - time: 81.558
+    type: 1
+  - time: 83.326
+    type: 2
+  - time: 84.193
+    type: 0
+  - time: 85.1
+    type: 0
+  - time: 86.313
+    type: 0
+  - time: 87.396
+    type: 0
+  - time: 88.615
+    type: 0
+  - time: 89.855
+    type: 0
+  - time: 90.207
+    type: 0
+  notesData: '{"Llane":[{"time":12.75,"pattern":0},{"time":15.215999603271485,"pattern":0},{"time":21.20400047302246,"pattern":0},{"time":24.738000869750978,"pattern":3},{"time":26.851999282836915,"pattern":4},{"time":27.48699951171875,"pattern":3},{"time":28.264999389648439,"pattern":4},{"time":29.322999954223634,"pattern":0},{"time":29.677000045776368,"pattern":3},{"time":30.391000747680665,"pattern":4},{"time":32.500999450683597,"pattern":3},{"time":33.91699981689453,"pattern":4},{"time":35.577999114990237,"pattern":0},{"time":36.73899841308594,"pattern":0},{"time":37.45199966430664,"pattern":0},{"time":38.14699935913086,"pattern":0},{"time":39.56399917602539,"pattern":0},{"time":40.25600051879883,"pattern":0},{"time":40.96900177001953,"pattern":0},{"time":41.685001373291019,"pattern":0},{"time":44.53200149536133,"pattern":0},{"time":46.62099838256836,"pattern":0},{"time":48.02399826049805,"pattern":3},{"time":49.444000244140628,"pattern":4},{"time":50.154998779296878,"pattern":0},{"time":53.68199920654297,"pattern":3},{"time":54.75699996948242,"pattern":4},{"time":55.09700012207031,"pattern":0},{"time":55.624000549316409,"pattern":0},{"time":56.32400131225586,"pattern":0},{"time":58.61399841308594,"pattern":0},{"time":59.14699935913086,"pattern":0},{"time":59.50299835205078,"pattern":0},{"time":59.858001708984378,"pattern":0},{"time":60.38600158691406,"pattern":3},{"time":61.80699920654297,"pattern":4},{"time":62.1510009765625,"pattern":0},{"time":62.67399978637695,"pattern":0},{"time":63.01900100708008,"pattern":0},{"time":63.38999938964844,"pattern":0},{"time":65.6729965209961,"pattern":0},{"time":66.19999694824219,"pattern":0},{"time":66.54900360107422,"pattern":0},{"time":66.90499877929688,"pattern":0},{"time":67.4469985961914,"pattern":0},{"time":67.96800231933594,"pattern":0},{"time":68.322998046875,"pattern":0},{"time":68.68699645996094,"pattern":0},{"time":69.2040023803711,"pattern":1},{"time":69.73899841308594,"pattern":0},{"time":70.08799743652344,"pattern":0},{"time":70.45700073242188,"pattern":0},{"time":72.73899841308594,"pattern":1},{"time":73.25599670410156,"pattern":0},{"time":73.62100219726563,"pattern":0},{"time":73.97100067138672,"pattern":0},{"time":74.5009994506836,"pattern":3},{"time":76.26599884033203,"pattern":4},{"time":78.03900146484375,"pattern":1},{"time":78.55599975585938,"pattern":0},{"time":78.90799713134766,"pattern":0},{"time":79.29100036621094,"pattern":0},{"time":81.55799865722656,"pattern":0},{"time":82.08499908447266,"pattern":0},{"time":82.61799621582031,"pattern":0},{"time":82.96399688720703,"pattern":0},{"time":83.32599639892578,"pattern":0},{"time":83.8489990234375,"pattern":0},{"time":84.56099700927735,"pattern":0},{"time":85.61699676513672,"pattern":0},{"time":86.85299682617188,"pattern":0},{"time":88.10600280761719,"pattern":0},{"time":89.14299774169922,"pattern":0},{"time":90.20700073242188,"pattern":0}],"Rlane":[{"time":15.553999900817871,"pattern":0},{"time":18.386999130249025,"pattern":0},{"time":20.854000091552736,"pattern":0},{"time":22.621999740600587,"pattern":0},{"time":23.315000534057618,"pattern":0},{"time":24.024999618530275,"pattern":3},{"time":24.738000869750978,"pattern":4},{"time":26.496999740600587,"pattern":0},{"time":26.851999282836915,"pattern":2},{"time":28.264999389648439,"pattern":3},{"time":29.677000045776368,"pattern":4},{"time":30.391000747680665,"pattern":3},{"time":32.500999450683597,"pattern":4},{"time":33.91699981689453,"pattern":2},{"time":35.577999114990237,"pattern":0},{"time":36.02899932861328,"pattern":0},{"time":36.73899841308594,"pattern":0},{"time":38.14699935913086,"pattern":0},{"time":38.85900115966797,"pattern":0},{"time":39.56399917602539,"pattern":0},{"time":40.25600051879883,"pattern":0},{"time":42.37900161743164,"pattern":0},{"time":43.08100128173828,"pattern":0},{"time":43.2599983215332,"pattern":0},{"time":43.78300094604492,"pattern":0},{"time":45.38199996948242,"pattern":3},{"time":46.62099838256836,"pattern":4},{"time":47.356998443603519,"pattern":0},{"time":49.444000244140628,"pattern":0},{"time":51.03099822998047,"pattern":3},{"time":51.91299819946289,"pattern":4},{"time":52.26300048828125,"pattern":3},{"time":54.75699996948242,"pattern":4},{"time":56.861000061035159,"pattern":0},{"time":57.395999908447269,"pattern":0},{"time":57.73500061035156,"pattern":0},{"time":58.097999572753909,"pattern":0},{"time":60.38600158691406,"pattern":0},{"time":60.91899871826172,"pattern":0},{"time":61.625999450683597,"pattern":0},{"time":63.90999984741211,"pattern":0},{"time":64.44499969482422,"pattern":0},{"time":64.79399871826172,"pattern":0},{"time":65.14700317382813,"pattern":0},{"time":67.4469985961914,"pattern":3},{"time":69.2040023803711,"pattern":4},{"time":70.9729995727539,"pattern":2},{"time":71.50299835205078,"pattern":0},{"time":71.84400177001953,"pattern":0},{"time":72.22100067138672,"pattern":0},{"time":74.5009994506836,"pattern":2},{"time":75.02799987792969,"pattern":0},{"time":75.39299774169922,"pattern":0},{"time":75.73200225830078,"pattern":0},{"time":76.26599884033203,"pattern":0},{"time":76.79499816894531,"pattern":0},{"time":77.14399719238281,"pattern":0},{"time":77.50599670410156,"pattern":0},{"time":79.7969970703125,"pattern":2},{"time":80.32099914550781,"pattern":0},{"time":80.66600036621094,"pattern":0},{"time":81.03500366210938,"pattern":0},{"time":81.55799865722656,"pattern":3},{"time":83.32599639892578,"pattern":4},{"time":84.19300079345703,"pattern":0},{"time":85.0999984741211,"pattern":0},{"time":86.31300354003906,"pattern":0},{"time":87.39600372314453,"pattern":0},{"time":88.61499786376953,"pattern":0},{"time":89.8550033569336,"pattern":0},{"time":90.20700073242188,"pattern":0}],"Name":""} '
+  isR: 1
+  jsonToList: 1

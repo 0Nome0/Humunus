@@ -12,4 +12,121 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a096f6669d44a682a1e452bc9bba3d, type: 3}
   m_Name: 2R
   m_EditorClassIdentifier: 
-  notes: []
+  notes:
+  - time: 2.392
+    type: 1
+  - time: 4.765
+    type: 2
+  - time: 9.479
+    type: 3
+  - time: 11.816
+    type: 1
+  - time: 13.581
+    type: 2
+  - time: 14.174
+    type: 3
+  - time: 17.736
+    type: 0
+  - time: 18.268
+    type: 0
+  - time: 18.907
+    type: 1
+  - time: 20.14
+    type: 2
+  - time: 21.205
+    type: 1
+  - time: 23.582
+    type: 2
+  - time: 25.025
+    type: 0
+  - time: 25.335
+    type: 0
+  - time: 29.494
+    type: 0
+  - time: 30.068
+    type: 0
+  - time: 30.68
+    type: 1
+  - time: 32.425
+    type: 2
+  - time: 34.196
+    type: 0
+  - time: 35.54
+    type: 1
+  - time: 38.865
+    type: 2
+  - time: 40.06
+    type: 0
+  - time: 40.366
+    type: 0
+  - time: 40.666
+    type: 0
+  - time: 41.245
+    type: 1
+  - time: 41.847
+    type: 2
+  - time: 44.845
+    type: 0
+  - time: 46.024
+    type: 1
+  - time: 48.944
+    type: 2
+  - time: 49.526
+    type: 1
+  - time: 50.681
+    type: 2
+  - time: 54.276
+    type: 1
+  - time: 55.506
+    type: 2
+  - time: 58.928
+    type: 3
+  - time: 61.399
+    type: 1
+  - time: 63.057
+    type: 2
+  - time: 66.015
+    type: 1
+  - time: 67.197
+    type: 2
+  - time: 70.105
+    type: 0
+  - time: 70.709
+    type: 1
+  - time: 71.814
+    type: 2
+  - time: 73.056
+    type: 1
+  - time: 74.841
+    type: 2
+  - time: 77.762
+    type: 1
+  - time: 79.441
+    type: 2
+  - time: 82.484
+    type: 1
+  - time: 83.59
+    type: 2
+  - time: 84.752
+    type: 1
+  - time: 85.925
+    type: 2
+  - time: 86.508
+    type: 1
+  - time: 87.086
+    type: 2
+  - time: 89.495
+    type: 1
+  - time: 91.26
+    type: 2
+  - time: 91.804
+    type: 1
+  - time: 93.577
+    type: 2
+  - time: 95.347
+    type: 1
+  - time: 95.914
+    type: 2
+  notesData: '{"Llane":[{"time":6.570000171661377,"pattern":0},{"time":7.116000175476074,"pattern":3},{"time":8.883000373840332,"pattern":4},{"time":10.649999618530274,"pattern":0},{"time":11.312999725341797,"pattern":0},{"time":15.35200023651123,"pattern":3},{"time":15.977999687194825,"pattern":4},{"time":16.527999877929689,"pattern":3},{"time":20.139999389648439,"pattern":4},{"time":21.204999923706056,"pattern":3},{"time":23.582000732421876,"pattern":4},{"time":24.77400016784668,"pattern":1},{"time":25.926000595092775,"pattern":3},{"time":27.733999252319337,"pattern":4},{"time":28.31800079345703,"pattern":1},{"time":30.06800079345703,"pattern":0},{"time":30.68000030517578,"pattern":3},{"time":32.42499923706055,"pattern":4},{"time":33.000999450683597,"pattern":1},{"time":34.755001068115237,"pattern":0},{"time":36.54600143432617,"pattern":0},{"time":37.50600051879883,"pattern":0},{"time":37.71099853515625,"pattern":3},{"time":38.8650016784668,"pattern":4},{"time":42.404998779296878,"pattern":3},{"time":44.18600082397461,"pattern":4},{"time":45.49100112915039,"pattern":0},{"time":47.14500045776367,"pattern":0},{"time":47.76100158691406,"pattern":0},{"time":48.33599853515625,"pattern":0},{"time":52.12799835205078,"pattern":3},{"time":53.62099838256836,"pattern":4},{"time":56.652000427246097,"pattern":3},{"time":57.8390007019043,"pattern":4},{"time":58.928001403808597,"pattern":3},{"time":60.7400016784668,"pattern":4},{"time":63.67499923706055,"pattern":3},{"time":65.4540023803711,"pattern":4},{"time":68.84500122070313,"pattern":1},{"time":71.81400299072266,"pattern":3},{"time":73.05599975585938,"pattern":4},{"time":74.84100341796875,"pattern":1},{"time":75.38700103759766,"pattern":3},{"time":76.66300201416016,"pattern":4},{"time":80.10199737548828,"pattern":3},{"time":81.88200378417969,"pattern":4},{"time":83.58999633789063,"pattern":3},{"time":84.75199890136719,"pattern":4},{"time":85.92500305175781,"pattern":3},{"time":86.50800323486328,"pattern":4},{"time":87.08599853515625,"pattern":3},{"time":88.91300201416016,"pattern":4},{"time":89.49500274658203,"pattern":1},{"time":94.15799713134766,"pattern":3},{"time":95.91400146484375,"pattern":4}],"Rlane":[{"time":2.3919999599456789,"pattern":3},{"time":4.764999866485596,"pattern":4},{"time":9.479000091552735,"pattern":2},{"time":11.815999984741211,"pattern":3},{"time":13.581000328063965,"pattern":4},{"time":14.173999786376954,"pattern":2},{"time":17.736000061035158,"pattern":0},{"time":18.26799964904785,"pattern":0},{"time":18.906999588012697,"pattern":3},{"time":20.139999389648439,"pattern":4},{"time":21.204999923706056,"pattern":3},{"time":23.582000732421876,"pattern":4},{"time":25.024999618530275,"pattern":0},{"time":25.334999084472658,"pattern":0},{"time":29.493999481201173,"pattern":0},{"time":30.06800079345703,"pattern":0},{"time":30.68000030517578,"pattern":3},{"time":32.42499923706055,"pattern":4},{"time":34.19599914550781,"pattern":0},{"time":35.540000915527347,"pattern":3},{"time":38.8650016784668,"pattern":4},{"time":40.060001373291019,"pattern":0},{"time":40.36600112915039,"pattern":0},{"time":40.66600036621094,"pattern":0},{"time":41.244998931884769,"pattern":3},{"time":41.84700012207031,"pattern":4},{"time":44.845001220703128,"pattern":0},{"time":46.02399826049805,"pattern":3},{"time":48.944000244140628,"pattern":4},{"time":49.5260009765625,"pattern":3},{"time":50.680999755859378,"pattern":4},{"time":54.2760009765625,"pattern":3},{"time":55.50600051879883,"pattern":4},{"time":58.928001403808597,"pattern":2},{"time":61.39899826049805,"pattern":3},{"time":63.05699920654297,"pattern":4},{"time":66.01499938964844,"pattern":3},{"time":67.1969985961914,"pattern":4},{"time":70.1050033569336,"pattern":0},{"time":70.70899963378906,"pattern":3},{"time":71.81400299072266,"pattern":4},{"time":73.05599975585938,"pattern":3},{"time":74.84100341796875,"pattern":4},{"time":77.76200103759766,"pattern":3},{"time":79.44100189208985,"pattern":4},{"time":82.48400115966797,"pattern":3},{"time":83.58999633789063,"pattern":4},{"time":84.75199890136719,"pattern":3},{"time":85.92500305175781,"pattern":4},{"time":86.50800323486328,"pattern":3},{"time":87.08599853515625,"pattern":4},{"time":89.49500274658203,"pattern":3},{"time":91.26000213623047,"pattern":4},{"time":91.80400085449219,"pattern":3},{"time":93.5770034790039,"pattern":4},{"time":95.34700012207031,"pattern":3},{"time":95.91400146484375,"pattern":4}],"Name":""} '
+  isR: 1
+  jsonToList: 1

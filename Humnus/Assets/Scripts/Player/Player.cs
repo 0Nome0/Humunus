@@ -21,12 +21,12 @@ public class Player : MonoBehaviour
     public SceneTransitioner scener = null;
     public ScriptableObjectDatabase database = null;
 
-
     private void Start()
     {
         var data = database.GetObjectByID<MusicData>(musicID);
         LNotes.notesData = data.notesDataL;
         RNotes.notesData = data.notesDataR;
+        audio.clip = data.audiClip;
 
         hitPoint.OnDead.Subscribe(_ =>
         {
@@ -83,11 +83,14 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Debug.Log($"{audio.time}/{audio.clip.length}");
-        if(audio.clip.length <= audio.time)
+        if(audio.clip.length - 5 <= audio.time && !isend)
         {
+            isend = true;
             Observable
             .Timer(TimeSpan.FromSeconds(5))
             .Subscribe(_ => { scener.NextAsync(); });
         }
     }
+
+    public bool isend = false;
 }

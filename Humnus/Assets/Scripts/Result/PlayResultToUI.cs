@@ -7,6 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using NerScript;
 using NerScript.Anime;
+using Random = UnityEngine.Random;
 
 public class PlayResultToUI : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class PlayResultToUI : MonoBehaviour
         perfect.text = PlayScoreManager.perfectCount.ToString();
         great.text = PlayScoreManager.greatCount.ToString();
         miss.text = PlayScoreManager.missCount.ToString();
-        rank.sprite = S;
+        rank.sprite = Random.Range(0, 2) == 1 ? S : A;
 
 
         scoreText

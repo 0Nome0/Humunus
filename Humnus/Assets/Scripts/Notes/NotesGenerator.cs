@@ -32,7 +32,6 @@ public class NotesGenerator : MonoBehaviour
 
     private List<Notes> NotesList => notesData.notes;
 
-    [SerializeField] private List<Notes> notesList;
     [SerializeField] private Pool<NotesObject> notesPool;
     [SerializeField] private List<NotesObject> flowNotesList;
 
@@ -214,8 +213,8 @@ public class NotesGenerator : MonoBehaviour
         //流れてない
         else
         {
-            var rem = notesList.FirstOrDefault(n => n.type == NotesType.End);
-            notesList.Remove(rem);
+            var rem = NotesList.FirstOrDefault(n => n.type == NotesType.End);
+            NotesList.Remove(rem);
         }
 
         var image = longImages[0];
@@ -397,8 +396,8 @@ public class NotesGenerator : MonoBehaviour
     private bool ShouldFlowNotes()
     {
         return
-        notesList.HasItem() &&
-        notesList[0].time - speed <= time
+        NotesList.HasItem() &&
+        NotesList[0].time - speed <= time
         ;
     }
 
@@ -407,7 +406,7 @@ public class NotesGenerator : MonoBehaviour
         NotesObject nObj = notesPool.Get();
 
         nObj.transform.position = laneStart.position;
-        nObj.notes = notesList[0];
+        nObj.notes = NotesList[0];
 
         switch(nObj.notes.type)
         {
@@ -437,8 +436,8 @@ public class NotesGenerator : MonoBehaviour
         NotesAnime(nObj);
 
         flowNotesList.Add(nObj);
-        notesList.RemoveFirst();
-        //notesList.Add(new Notes(notesList.Last().time + 1.0f, NotesType.Slide));
+        NotesList.RemoveFirst();
+        //NotesList.Add(new Notes(NotesList.Last().time + 1.0f, NotesType.Slide));
     }
 
     public bool isMuteki = false;
@@ -505,7 +504,7 @@ public class NotesGenerator : MonoBehaviour
                     //流れてない
                     else if(index == -1)
                     {
-                        notesList.RemoveFirst();
+                        NotesList.RemoveFirst();
                     }
                 }
                 var image = longImages[0];

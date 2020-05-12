@@ -25,7 +25,7 @@ MonoBehaviour:
   feverStart: 0
   feverEnd: 0
   openConditions: "\u521D\u671F\u958B\u653E"
-  openFlag: 010001
+  openFlag: 010101
   clearData:
   - clearRank: 0
     maxScore: 0

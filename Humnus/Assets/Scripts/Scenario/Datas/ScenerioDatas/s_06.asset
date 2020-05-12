@@ -16,5 +16,5 @@ MonoBehaviour:
   episode: 5
   scenarioTitle: "\u99C5\u306B\u884C\u304F"
   clip: {fileID: 8300000, guid: e685625d05015244789b430f44013d9e, type: 3}
-  openFlag: 0
+  openFlag: 1
   clearFlag: 0
