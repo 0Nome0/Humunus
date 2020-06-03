@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -53,13 +53,17 @@ public class ScenarioManager : MonoBehaviour
     public void TextUpdate()
     {
         //表示する文字数が上限に到達していたらorすべてのテキストを表示しきったら
-        if (SentenceEndFlag||ScenarioEndFlag)
+        if (SentenceEndFlag || ScenarioEndFlag)
             return;
 
         timer.UpdateTime();
         if (timer.IsTime())
         {
-            string text = scenarioArray[CurrentScentenceCount][currentScentenceNum].ToString();
+            string text;
+            if (scenarioArray[CurrentScentenceCount].Length == 0)
+                text = "";
+            else
+                text = scenarioArray[CurrentScentenceCount][currentScentenceNum].ToString();
             //改行するかどうか
             if (text == "/")
                 text = "\n";
@@ -102,7 +106,7 @@ public class ScenarioManager : MonoBehaviour
     public void TouchToDisplayText()
     {
         scenarioText.text = "";
-        for(int i = 0; i < scenarioArray[CurrentScentenceCount].Length; i++)
+        for (int i = 0; i < scenarioArray[CurrentScentenceCount].Length; i++)
         {
             string text = scenarioArray[CurrentScentenceCount][i].ToString();
             //改行するかどうか

@@ -49,6 +49,7 @@ public class ScenarioContoll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ScenarioDataInfo.Instance.scenarioProgress = ScenarioDataToUI.scenarioID + 1;
         type = ScenarioType.Load;
         ScenarioDataInfo.Instance.scenarioTextIndex = 0;
         scenarioData = new List<string[]>();

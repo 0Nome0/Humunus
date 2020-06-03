@@ -44,6 +44,11 @@ public class SEToVoiceController : MonoBehaviour
             return;
         if (voiceSoundArray[CurrentIndex] == "")
             return;
+        if (!voice.ContainsKey(voiceSoundArray[CurrentIndex]))
+        {
+            Debug.LogError("そのキーは存在しません。keyName = " + voiceSoundArray[CurrentIndex]);
+            return;
+        }
         audioSource.PlayOneShot(voice[voiceSoundArray[CurrentIndex]]);
         Debug.Log("Voiceの再生");
     }

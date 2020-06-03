@@ -79,7 +79,7 @@ public class CharacterNameManager : MonoBehaviour
                 case "Tem":
                     charaNameArray_J[i] = "テム";
                     break;
-                case "Theobart":
+                case "Theobalt":
                     charaNameArray_J[i] = "テオバルト";
                     break;
                 case "Orphia":

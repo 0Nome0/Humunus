@@ -74,7 +74,11 @@ public class BGMListenController : MonoBehaviour
             return;
         if (bgmSoundArray[CurrentIndex] == "")
             return;
-
+        if (!bgm.ContainsKey(bgmSoundArray[CurrentIndex]))
+        {
+            Debug.LogError("そのキーは存在しません。keyName = " + bgmSoundArray[CurrentIndex]);
+            return;
+        }
         //クリップをセットする
         audioSource.clip = bgm[bgmSoundArray[CurrentIndex]];
         //audioSource.DOFade(
